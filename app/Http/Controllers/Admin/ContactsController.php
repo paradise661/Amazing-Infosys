@@ -55,11 +55,16 @@ class ContactsController extends Controller
             'message' => 'required',
         ]);
 
-        if ($validator->passes()) {
-            Contacts::create($request->all());
-            return Response::json(['success' => 'Your enquiry has been Submitted']);
+        if ($validator->fails()) {
+            return redirect()->to(url()->previous() . '#contact-form')
+                ->withErrors($validator)
+                ->withInput();
+            // Keeps old input values
         }
 
-        return Response::json(['errors' => $validator->errors()]);
+        Contacts::create($request->all());
+
+        return redirect()->to(url()->previous() . '#contact-form')->with('success', 'Your enquiry has been submitted successfully.');
+
     }
 }

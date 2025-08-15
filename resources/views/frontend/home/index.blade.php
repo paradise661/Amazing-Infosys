@@ -2,514 +2,700 @@
 
 @section('seo')
     @include('frontend.global.seo', [
-        'name' => $setting['homepage_seo_title'] ?? 'Amazing Infosys',
-        'title' => $setting['homepage_seo_title'] ?? 'Amazing Infosys',
-        'description' => $setting['homepage_seo_description'] ?? '',
-        'keyword' => $setting['homepage_seo_keywords'] ?? '',
-        'schema' => $setting['homepage_seo_schema'] ?? '',
-        'seoimage' => $setting['homepage_image'] ?? '',
-        'created_at' => '2018-02-26T08:09:15+00:00',
-        'updated_at' => '2018-02-26T10:54:05+00:00',
-    ])
+    'name' => $setting['homepage_seo_title'] ?? 'Amazing Infosys',
+    'title' => $setting['homepage_seo_title'] ?? 'Amazing Infosys',
+    'description' => $setting['homepage_seo_description'] ?? '',
+    'keyword' => $setting['homepage_seo_keywords'] ?? '',
+    'schema' => $setting['homepage_seo_schema'] ?? '',
+    'seoimage' => $setting['homepage_image'] ?? '',
+    'created_at' => '2018-02-26T08:09:15+00:00',
+    'updated_at' => '2018-02-26T10:54:05+00:00',
+])
 @endsection
 
 @section('content')
-    @if ($sliders)
-        <section class="tp-hero-3-area tp-hero-3-height d-flex align-items-center p-relative" data-bg-color="#F4F5FA">
-            <div class="tp-hero-3-shape">
-                <img class="shape-bg-1" src="{{ asset('frontend') }}/assets/img/hero/home-3/shape-1.png" alt="">
-                <img class="shape-bg-2" src="{{ asset('frontend') }}/assets/img/hero/home-3/shape-2.png" alt="">
-            </div>
+        <main class="fix">
+        <!-- banner-area -->
+        <section class="banner-area banner-bg">
+            <div class="bg-img position-absolute top-0 bottom-0 start-0 w-100 h-100"
+                data-background="{{ asset('frontend') }}/assets/img/banner/banner_bg.jpg"></div>
             <div class="container">
-                <div class="tp-hero-3-main-wrapper">
-                    <div class="row align-items-center">
-                        <div class="col-lg-6">
-                            <div class="tp-hero-3-content p-relative z-index-1 wow fadeInUp" data-wow-duration="1s"
-                                data-wow-delay=".3s">
-                                <div class="tp-hero-3-title-wrapper">
-                                    <span class="tp-section-title-pre">{{ $sliders->name ?? 'About Company' }}</span>
-                                    {!! $sliders->description ?? '<h2 class="tp-hero-title">Empowering your business through technology</h2>' !!}
-                                </div>
-                                <div class="tp-hero-3-btn-wrapper d-flex flex-wrap">
-                                    <div class="tp-hero-btn mr-30">
-                                        <a class="tp-btn" href="{{ $sliders->link }}">Learn More <span><i
-                                                    class="fa-regular fa-circle-right"></i></span></a>
-                                    </div>
-                                </div>
-                            </div>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="banner-content">
+                            <span class="sub-title" data-aos="fade-up" data-aos-delay="0">We Are Expert In This
+                                Field</span>
+                            {{-- <h2 class="title text-primary" data-aos="fade-up" data-aos-delay="200">{{ $sliders->name ?? 'About Company' }}</h2> --}}
+                            <p data-aos="fade-up" data-aos-delay="400">{!! $sliders->description ?? '' !!}</p>
+                            <a href="about" class="btn" data-aos="fade-up" data-aos-delay="600">Read More</a>
                         </div>
-                        <div class="col-lg-6">
-                            <div class="tp-hero-3-thumb p-relative wow fadeInUp" data-wow-duration="1s"
-                                data-wow-delay=".3s">
-                                {!! get_image($sliders->image, '', 'banner-slider') !!}
-                            </div>
-                        </div>
+                        {{-- <div class="banner-shape">
+                            <img src="{{ asset('frontend') }}/assets/img/banner/banner_shape01.png" alt="Apexa" class="rightToLeft" />
+                            <img src="{{ asset('frontend') }}/assets/img/banner/banner_shape02.png" alt="Apexa" class="ribbonRotate" />
+                        </div> --}}
                     </div>
+                </div>
+                <div class="banner-social">
+                    <h5 class="title text-primary">Follow us</h5>
+                    <ul class="list-wrap">
+                        <li>
+                            <a href="javascript:void(0)"><i class="fab fa-facebook-f"></i></a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)"><i class="fab fa-twitter"></i></a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)"><i class="fab fa-instagram"></i></a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)"><i class="fab fa-pinterest-p"></i></a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)"><i class="fab fa-linkedin-in"></i></a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="banner-scroll">
+                    <a href="#about">Scroll Down <span><i class="fas fa-arrow-right"></i></span></a>
                 </div>
             </div>
         </section>
-    @endif
+        <!-- banner-area-end -->
+        <!-- brand-area -->
+        <div class="brand-area">
+            <div class="container">
+                <div class="swiper-container brand-active">
+                    <div class="swiper-wrapper">
+                        @foreach ($partners as $item)
 
-    <section class="tp-about-3-area p-relative pt-120 pb-90">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6">
-                    <div class="tp-about-3-thumb-wrapper p-relative wow fadeInLeft" data-wow-duration="1s"
-                        data-wow-delay=".3s">
-                        <div class="tp-about-3-thumb">
-                            {!! get_image($setting['homepage_image']) !!}
-                            <img class="shape-1" src="{{ asset('frontend') }}/assets/img/about/home-3/img-2.png"
-                                alt="">
-                            <img class="shape-2" src="{{ asset('frontend') }}/assets/img/about/home-3/img-3.png"
-                                alt="">
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="tp-about-3-wrapper">
-                        <div class="tp-about-3-title-wrapper">
-                            <span class="tp-section-title-pre">About Company</span>
-                            <h3 class="tp-section-title">{{ $setting['homepage_title'] ?? '' }}</h3>
-                        </div>
-                        <div class="fast">{!! $setting['homepage_description'] ?? '' !!}</div>
-                        <div class="tp-about-btn">
-                            <a class="tp-btn" href="/about-us/">Read More<span><i
-                                        class="fa-regular fa-arrow-right"></i></span></a>
-                        </div>
+                            <div class="swiper-slide">
+                                <div class="brand-item">
+                                    {!! get_image($item->image) !!}
+
+                                </div>
+                            </div>
+                        @endforeach
                     </div>
                 </div>
             </div>
         </div>
-    </section>
-    @if ($services->isNotEmpty())
-        <section class="tp-process-2-area p-relative pb-90 pt-90" data-bg-color="#0E1E2A">
-            <div class="tp-process-2-shape">
-                <img src="{{ asset('frontend') }}/assets/img/process/home-3/shape.png" alt="">
-            </div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="tp-process-2-title-wrapper text-center mb-55">
-                            <span class="tp-section-title-pre">What we’re Offering</span>
-                            <h3 class="tp-section-title">Unlocking the Power of <br> Technology</h3>
-                        </div>
-                    </div>
-                    @foreach ($services as $srvs)
-                        <div class="col-lg-4 col-md-6">
-                            <div class="tp-offer-wrapper p-relative mb-30 wow fadeInUp" data-wow-duration="1s"
-                                data-wow-delay=".3s">
-                                <div class="tp-offer-wrapper-thumb">
-                                    <a href="{{ route('servicesingle', $srvs->slug) }}">
-                                        {!! get_image($srvs->image, '', 'home-service') !!}
-                                    </a>
-                                </div>
-                                <div class="tp-offer-wrapper-content">
-                                    <h3 class="tp-offer-title"><a
-                                            href="{{ route('servicesingle', $srvs->slug) }}">{{ $srvs->name ?? '' }}</a>
-                                    </h3>
-                                    <p>{{ stripLetters($srvs->description, 135, '...') }}
-                                    </p>
-                                    <div class="tp-offer-wrapper-btn">
-                                        <a class="tp-btn-transparent" href="{{ route('servicesingle', $srvs->slug) }}">Read
-                                            More<span><i class="fa-regular fa-arrow-right"></i></span></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    @endforeach
-                </div>
-            </div>
-        </section>
-    @endif
-
-    @if ($projects->isNotEmpty())
-        <section class="tp-portfolio-area pt-90 pb-90">
+        <!-- brand-area -->
+        <!-- about-area -->
+        <section id="about" class="about-area pt-120 pb-120">
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-lg-6">
-                        <div class="tp-portfolio-title-wrapper mb-55">
-                            <span class="tp-section-title-pre">Project Portfolio</span>
-                            <h3 class="tp-section-title">Where IT Meets Your <br> Vision</h3>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="tp-portfolio-btn text-start text-lg-end">
-                            <a class="tp-btn" href="projects">View All Project <span><i
-                                        class="fa-regular fa-plus"></i></span></a>
-                        </div>
-                    </div>
-                    @foreach ($projects as $key => $prj)
-                        <div class="col-lg-3 col-md-6">
-                            <div class="tp-portfolio-wrapper text-center mb-30 wow fadeInUp" data-wow-duration="1s"
-                                data-wow-delay=".{{ $key++ }}s">
-                                <div class="tp-portfolio-thumb">
-                                    <a href="{{ route('projectsingle', $prj->slug) }}">
-                                        {!! get_image($prj->image, '', 'home-project') !!}
-                                    </a>
-                                </div>
-                                <div class="tp-portfolio-content p-relative">
-                                    <h3 class="tp-portfolio-title"><a
-                                            href="{{ route('projectsingle', $prj->slug) }}">{{ $prj->name ?? '' }}</a>
-                                    </h3>
-                                </div>
-                            </div>
-                        </div>
-                    @endforeach
-                </div>
-            </div>
-        </section>
-    @endif
-    @if ($whowe)
-        <section class="tp-features-3-area p-relative pt-80 pb-80">
-            <div class="container">
-                <div class="tp-features-3-bg"></div>
-                <div class="row">
-                    <div class="col-lg-6">
-                        <div class="tp-features-3-wrapper">
-                            <div class="tp-features-3-title-wrapper">
-                                <span class="tp-section-title-pre">{{ $whowe->name ?? '' }}</span>
-                            </div>
-                            {!! $whowe->description ?? '' !!}
-                            <div class="tp-features-3-btn">
-                                <a class="tp-btn" href="/about-us">Discover More<span><i
-                                            class="fa-regular fa-plus"></i></span></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="tp-features-3-thumb wow fadeInRight" data-wow-duration="1s" data-wow-delay=".3s">
-                            {!! get_image($whowe->image) !!}
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    @endif
-    @if ($teams->isNotEmpty())
-        <section class="tp-team-3-area p-relative pt-120">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="tp-team-3-title-wrapper mb-55 text-center">
-                            <span class="tp-section-title-pre">{{ $setting['team_title'] ?? 'Our Team' }}</span>
-                            <h3 class="tp-section-title">{!! $setting['team_description'] ?? 'Leading the Way in IT <br> Innovation' !!}</h3>
-                        </div>
-                    </div>
-                    <div class="tp-team-3-active swiper-container">
-                        <div class="swiper-wrapper">
-                            @foreach ($teams as $team)
-                                <div class="swiper-slide">
-                                    <div class="tp-team-3-item text-center mb-30">
-                                        <div class="tp-team-3-thumb">
+                        <div class="about-img-wrap">
+                            <div class="mask-img-wrap">
+                                 @if(!$setting['homepage_image'] == Null)
+                                     {!! get_image($setting['homepage_image']) !!}
+                                @else
+                                    <img src="{{ asset('frontend') }}/assets/img/images/about_img01.jpg" alt="pexa" />
 
-                                            {!! get_image($team->image, '', 'team') !!}
-                                            <div class="tp-team-3-social">
-                                                <a class="icon-1" href="#"><i class="fa fa-phone"></i></a>
-                                                <a class="icon-2" href="#"><i class="fa fa-envelope"></i></a>
+                                @endif
+                            </div>
+                            <div class="shape">
+                                <img src="{{ asset('frontend') }}/assets/img/images/about_shape01.png" alt="Apexa" />
+                            </div>
+                            <div class="experience-year">
+                                <div class="icon">
+                                    <i class="flaticon-trophy"></i>
+                                </div>
+                                <div class="content">
+                                    <h6 class="circle rotateme">Years Of - Experience 25 -</h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="about-content">
+                            <div class="section-title mb-35 tg-heading-subheading animation-style3">
+                                <span class="sub-title">Simply Know About</span>
+                                <h2 class="title tg-element-title">
+                                    About Company
+                                </h2>
+                            </div>
+                             <div class="about-list">
+                                <ul class="list-wrap">
+                                    <li>
+                                        <div class="icon">
+                                            <i class="flaticon-target"></i>
+                                        </div>
+                                        <div class="content">
+                                            <h4 class="title">Business Solutions</h4>
+                                            <p>Semper egetuis tellus urna condi</p>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="icon">
+                                            <i class="flaticon-profit"></i>
+                                        </div>
+                                        <div class="content">
+                                            <h4 class="title">Quality Services</h4>
+                                            <p>Semper egetuis tellus urna condi</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <p>{!! $setting['homepage_description'] ?? '' !!}</p>
+                            <div class="about-bottom">
+                                <div class="author-wrap">
+                                    @foreach ($teams as $team)
+                                        @if ($team->position == 'CEO')
+
+                                            <div class="thumb">
+                                                {!! get_image($team->image, '', 'team') !!}
                                             </div>
-                                        </div>
-                                        <div class="tp-team-3-content">
-                                            <h3 class="tp-team-2-title">{{ $team->name ?? '' }}</h3>
-                                            @if ($team->position)
-                                                <p>{{ $team->position ?? '' }}</p>
-                                            @endif
-                                        </div>
-                                    </div>
+                                            <div class="content">
+                                                {{-- <img src="assets/img/images/sign.png" alt="Apexa" /> --}}
+                                                <h4 class="title">{{ $team->name ?? '' }} <span>, @if ($team->position)
+                                                    {{ $team->position ?? '' }}
+                                                @endif</span></h4>
+                                            </div>
+                                        @endif
+                                    @endforeach
                                 </div>
-                            @endforeach
+                                <a href="about" class="btn btn-two">Read More</a>
+                            </div>
+                            {{-- <div class="about-shape-wrap">
+                                <img src="assets/img/images/about_shape03.png" alt="Apexa" />
+                                <img src="assets/img/images/about_shape04.png" alt="Apexa" class="ribbonRotate" />
+                            </div> --}}
                         </div>
-                    </div>
-                    <div class="tp-team-3-active-controls text-center pt-20">
-                        <div class="slider_pagination"></div>
                     </div>
                 </div>
             </div>
+            {{-- <div class="about-left-shape dark-opacity">
+                <img class="dark-opacity" src="assets/img/images/about_shape02.png" alt="Apexa" />
+            </div> --}}
         </section>
-    @endif
-
-    @if ($partners->isNotEmpty())
-        <div class="brand-area-two pt-120">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="tp-team-3-title-wrapper mb-55 text-center">
-                            <span class="tp-section-title-pre">Our Valued Customer</span>
-                            <h3 class="tp-section-title">We are proud to serve 25+ customers!!!</h3>
-                        </div>
-                    </div>
-                    <div class="client-swipper swiper-container">
-                        <div class="swiper-wrapper">
-                            @foreach ($partners as $item)
-                                <div class="swiper-slide">
-                                    <div class="brand-item media-wrapper">
-                                        {!! get_image($item->image) !!}
-                                    </div>
-                                </div>
-                            @endforeach
+        <!-- about-area-end -->
+        <!-- services-area -->
+        <section class="services-area services-bg position-relative">
+            <div class="bg-img position-absolute top-0 bottom-0 start-0 end-0 z-0"
+                data-background="{{ asset('frontend') }}/assets/img/bg/services_bg.jpg"></div>
+            <div class="container position-relative z-1">
+                <div class="row justify-content-center">
+                    <div class="col-xl-6 col-lg-8">
+                        <div class="section-title text-center mb-40 tg-heading-subheading animation-style3">
+                            <span class="sub-title">WHAT WE OFFER</span>
+                            <h2 class="title tg-element-title text-primary">Unlocking the Power of <br> Technology</h2>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    @endif
-
-    @if ($setting['reviews'])
-        <section class="tp-testimonial-3-area pt-120 pb-90">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-lg-6">
-                        <div class="tp-testimonial-3-title-wrapper mb-55">
-                            <span class="tp-section-title-pre">
-                                {{ $setting['reviewtitle'] ?? 'Our Testimonials' }}</span>
-                            <h3 class="tp-section-title">
-                                {!! $setting['reviewinfo'] ?? 'Expert Solutions for Your <br> IT Challenges' !!}</h3>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="tp-testimonial-3-btn text-start text-lg-end">
-                            <a class="tp-btn" href="/reviews/">Read More <span><i
-                                        class="fa-regular fa-arrow-right"></i></span></a>
-                        </div>
-                    </div>
-                    @foreach ($setting['reviews'] as $rv)
-                        @php
-                            $rev = getReviewByID($rv);
-                        @endphp
-                        @if ($rev)
-                            <div class="col-lg-6">
-                                <div class="tp-testimonial-3-wrapper d-flex mb-30 wow fadeInUp" data-wow-duration="1s"
-                                    data-wow-delay=".3s">
-                                    <div class="tp-testimonial-3-thumb-wrapper">
-                                        <div class="tp-testimonial-3-thumb">
-                                            {!! get_image($rev->image, '', 'home-review') !!}
-                                        </div>
-                                        <div class="tp-testimonial-item-review text-end">
-                                            <span><i class="fa-solid fa-star"></i></span>
-                                            <span><i class="fa-solid fa-star"></i></span>
-                                            <span><i class="fa-solid fa-star"></i></span>
-                                            <span><i class="fa-solid fa-star"></i></span>
-                                            <span><i class="fa-solid fa-star"></i></span>
-                                        </div>
+                <div class="services-item-wrap">
+                    <div class="row justify-content-center">
+                        @foreach ($services as $srvs)
+                            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-8">
+                                <div class="services-item shine-animate-item">
+                                    <div class="services-thumb">
+                                        {{-- <a href="services-details" class="shine-animate"><img
+                                                src="assets/img/services/services_img01.jpg" alt="Apexa" /></a> --}}
+                                        <a href="{{ route('servicesingle', $srvs->slug) }}" class="shine-animate">
+                                        {!! get_image($srvs->image, '', 'home-service') !!}
+                                        </a>
                                     </div>
-                                    <div class="tp-testimonial-3-content">
-                                        <h3 class="tp-testimonial-3-title">{{ $rev->name ?? '' }}</h3>
-                                        <span class="tp-testimonial-3-description">{{ $rev->position ?? '' }}</span>
-                                        {!! $rev->description ?? '' !!}
+                                    <div class="services-content">
+                                        <div class="icon">
+                                            <i class="flaticon-profit"></i>
+                                        </div>
+                                        <h4 class="title"><a href="{{ route('servicesingle', $srvs->slug) }}">{{ $srvs->name ?? '' }}</a></h4>
+                                        <p>{{ stripLetters($srvs->description, 135, '...') }}</p>
+                                        <a href="{{ route('servicesingle', $srvs->slug) }}" class="btn">Read More</a>
                                     </div>
                                 </div>
                             </div>
-                        @endif
+                        @endforeach
+
+                    </div>
+                </div>
+                <div class="services-bottom-content">
+                    <p>Empowering Businesses through Strategic Consulting With Us</p>
+                    <a href="services" class="btn">See All Services</a>
+                </div>
+            </div>
+        </section>
+        <!-- services-area-end -->
+        <!-- choose-area -->
+        <section class="choose-area">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 order-0 order-lg-2">
+                        <div class="choose-img-wrap">
+                            <img src="assets/img/images/choose_img01.jpg" alt="Apexa" />
+                            <img src="assets/img/images/choose_img02.jpg" alt="Apexa" data-parallax='{"x" : 50 }' />
+                            <img src="assets/img/images/choose_img_shape.png" alt="Apexa"
+                                class="alltuchtopdown dark-opacity" />
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="choose-content">
+                            <div class="section-title white-title mb-30 tg-heading-subheading animation-style3">
+                                <span class="sub-title">Why We Are The Best</span>
+                                <h2 class="title tg-element-title">
+                                    We Offer Business Insight <br />
+                                    World Class Consulting
+                                </h2>
+                            </div>
+                            <p>We successfully cope with tasks of varying complexity provide area longerty guarantees
+                                and regularly master new Practice Following gies heur portfolio includes dozen.</p>
+                            <div class="choose-list">
+                                <ul class="list-wrap">
+                                    <li>
+                                        <div class="icon">
+                                            <i class="flaticon-investment"></i>
+                                        </div>
+                                        <div class="content">
+                                            <h4 class="title">Business Solutions</h4>
+                                            <p>Semper egetuis kelly for tellus urna area condition.</p>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="icon">
+                                            <i class="flaticon-investment-1"></i>
+                                        </div>
+                                        <div class="content">
+                                            <h4 class="title">Market Analysis</h4>
+                                            <p>Semper egetuis kelly for tellus urna area condition.</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="choose-shape-wrap">
+                <img src="assets/img/images/choose_shape01.png" alt="Apexa" data-aos="fade-right"
+                    data-aos-delay="400" />
+                <img class="dark-opacity" src="assets/img/images/choose_shape02.png" alt="Apexa" data-aos="fade-left"
+                    data-aos-delay="400" />
+            </div>
+        </section>
+        <!-- choose-area-end -->
+        <!-- counter-area -->
+        <section class="counter-area">
+            <div class="container">
+                <div class="row justify-content-center">
+                     @foreach ($counters as $count)
+                        <div class="col-xl-3 col-lg-4 col-sm-6">
+                            <div class="counter-item">
+                                <div class="icon">
+                                    <i class="flaticon-trophy"></i>
+                                </div>
+                                <div class="content">
+                                    <h2 class="count"><span class="odometer" data-count="{{ $count->count_num ?? '' }}"></span>+</h2>
+                                    <p>
+                                        {{ $count->name ?? '' }}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
                     @endforeach
                 </div>
             </div>
-        </section>
-    @endif
-    @if ($counters->isNotEmpty())
-        <section class="tp-counter-3-area p-relative z-index-1 pt-120 pb-90">
-            <div class="container">
-                <div class="tp-counter-3-bg"></div>
-                <div class="row align-items-center">
-                    <div class="col-lg-3 col-md-6">
-                        <div class="tp-counter-3-wrapper mb-30">
-                            <h3 class="tp-counter-3-title">Building Better Solutions</h3>
-                        </div>
-                    </div>
-                    @foreach ($counters as $count)
-                        <div class="col-lg-3 col-md-6">
-                            <div class="tp-counter-3-wrapper text-center mb-30">
-                                <div class="tp-counter-2-item-content">
-                                    <h4 class="tp-counter-2-title"><span class="purecounter"
-                                            data-purecounter-duration="2"
-                                            data-purecounter-end="{{ $count->count_num ?? '' }}"></span>{{ $count->num_postfix ?? 'K+' }}
-                                    </h4>
-                                    <p>{{ $count->name ?? '' }}</p>
-                                </div>
-                            </div>
-                        </div>
-                    @endforeach
-                </div>
+            <div class="counter-shape-wrap">
+                <img class="dark-opacity" src="{{ asset('frontend') }}/assets/img/images/counter_shape01.png" alt="Apexa" data-aos="fade-right"
+                    data-aos-delay="400" />
+                <img src="{{ asset('frontend') }}/assets/img/images/counter_shape02.png" alt="Apexa"
+                    data-parallax='{"x" : 100 , "y" : -100 }' />
+                <img class="dark-opacity" src="{{ asset('frontend') }}/assets/img/images/counter_shape03.png" alt="Apexa" data-aos="fade-left"
+                    data-aos-delay="400" />
             </div>
         </section>
-    @endif
-
-    <section class="tp-contact-3-area p-relative pt-120 pb-120" data-bg-color="#0E1E2A">
-        <div class="tp-contact-3-bg wow fadeInLeft" data-wow-duration="1s" data-wow-delay=".3s"
-            data-background="{{ get_media_url($setting['home_contact_image'], asset('frontend/assets/img/others/contact-img-3.jpg')) }}">
-        </div>
-        <div class="container">
-            <div class="tp-contact-3-shape">
-                <img src="{{ asset('frontend') }}/assets/img/others/shape/contact-shape-4.png" alt="">
-            </div>
-            <div class="row">
-                <div class="col-lg-6">
-
-                </div>
-                <div class="col-lg-6">
-                    <div class="tp-contact-3-title-wrapper">
-                        <span class="tp-section-title-pre">Talk to us</span>
-                        <h3 class="tp-section-title">Looking for the Best IT <br> Business Solutions?</h3>
-                    </div>
-                    <div class="tp-contact-wrapper">
-                        <form class="tp-contact-form contact-3" id="contact-form">
-                            @csrf
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <input class="form-control" id="name" name="name" type="text"
-                                            placeholder="Your Name">
-                                        <span class="text-danger">
-                                            <span id="name-error"></span>
-                                        </span>
-                                    </div>
-                                </div>
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <input class="form-control" id="phone" type="text" name="phone"
-                                            placeholder="Enter Phone" />
-                                        <span class="text-danger">
-                                            <span id="phone-error"></span>
-                                        </span>
-                                    </div>
-                                </div>
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <input class="form-control" id="email" type="email"
-                                            placeholder="Enter Email" name="email" />
-                                        <span class="text-danger">
-                                            <span id="email-error"></span>
-                                        </span>
-                                    </div>
-                                </div>
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <input class="form-control" id="subject" type="text" name="subject"
-                                            placeholder="Enter Subject" />
-                                        <span class="text-danger">
-                                            <span id="subject-error"></span>
-                                        </span>
-                                    </div>
-                                </div>
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <textarea class="form-control" id="message" name="message" placeholder="Enter Message"></textarea>
-                                        <span class="text-danger">
-                                            <span id="message-error"></span>
-                                        </span>
-                                    </div>
-                                </div>
-                                <div class="col-md-12">
-                                    <div class="tp-contact-box-btn">
-                                        <button class="tp-btn" id="contact_submit" type="submit">
-                                            Submit <span class="d-none" id="contact-loader"><i
-                                                    class="fas fa-sync fa-spin"></i></span>
-                                        </button>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    @if ($blogs->isNotEmpty())
-        <section class="tp-blog-3-area pt-90 pb-90">
+        <!-- counter-area-end -->
+        <!-- project-area -->
+        <section class="project-area">
             <div class="container">
-                <div class="row">
-                    <div class="col-lg-8">
-                        <div class="tp-blog-2-title-wrapper mb-40">
-                            <span class="tp-section-title-pre">{{ $setting['blog_title'] ?? 'Latest News' }}</span>
-                            <h3 class="tp-section-title">
-                                {!! $setting['blog_info'] ?? 'Taking your business to <br> the next level' !!}</h3>
+                <div class="row justify-content-center">
+                    <div class="col-xl-6 col-lg-7">
+                        <div class="section-title text-center mb-50 tg-heading-subheading animation-style3">
+                            <span class="sub-title">OUR PROJECTS</span>
+                            <h2 class="title tg-element-title">Let’s Discover All Our Clients Recent Project</h2>
                         </div>
                     </div>
-                    <div class="col-lg-4">
-                        <div class="tp-blog-2-nav text-end">
-                            <button class="blog-button-prev-1" type="button"><i class="fa-regular fa-arrow-left"></i>
-                            </button>
-                            <button class="blog-button-next-1" type="button"><i class="fa-regular fa-arrow-right"></i>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="tp-blog-3-active swiper-container">
-                        <div class="swiper-wrapper">
-                            @foreach ($blogs as $blog)
-                                <div class="swiper-slide">
-                                    <div class="tp-blog-3-item p-relative mb-30">
-                                        <div class="tp-blog-2-item-thumb">
-                                            <a href="{{ route('blogsingle', $blog->slug) }}">
-                                                {!! get_image($blog->image, '', 'home-blog') !!}
+                </div>
+            </div>
+            <div class="project-item-wrap">
+                <div class="container custom-container-two">
+                    <div class="row">
+                        @foreach ($projects as $key => $prj)
+                            <div class="col-xl-3 col-md-6">
+                                <div class="project-item">
+                                    <div class="project-thumb">
+                                        <a href="{{ route('projectsingle', $prj->slug) }}">
+                                            {!! get_image($prj->image, '', 'home-project') !!}
+                                        </a>
+                                    </div>
+                                    <div class="project-content">
+                                        <div class="left-side-content">
+                                            <h4 class="title"><a href="{{ route('projectsingle', $prj->slug) }}">{{ $prj->name ?? '' }}</a></h4>
+                                            {{-- <span>Business Strategy</span> --}}
+                                        </div>
+                                        <div class="link-arrow">
+                                            <a href="project-details">
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 15" fill="none">
+                                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                                        d="M17.6293 3.27957C17.7117 2.80341 17.4427 2.34763 17.0096 2.17812C16.9477 2.15385 16.8824 2.13552 16.8144 2.12376L6.96081 0.419152C6.41654 0.325049 5.89911 0.689856 5.80491 1.23411C5.71079 1.77829 6.07564 2.29578 6.61982 2.38993L14.0946 3.68295L1.36574 12.6573C0.914365 12.9756 0.806424 13.5995 1.12467 14.0509C1.44292 14.5022 2.06682 14.6102 2.51819 14.2919L15.247 5.31753L13.954 12.7923C13.8598 13.3365 14.2247 13.854 14.7689 13.9482C15.3131 14.0422 15.8305 13.6774 15.9248 13.1332L17.6293 3.27957Z"
+                                                        fill="currentcolor" />
+                                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                                        d="M17.6293 3.27957C17.7117 2.80341 17.4427 2.34763 17.0096 2.17812C16.9477 2.15385 16.8824 2.13552 16.8144 2.12376L6.96081 0.419152C6.41654 0.325049 5.89911 0.689856 5.80491 1.23411C5.71079 1.77829 6.07564 2.29578 6.61982 2.38993L14.0946 3.68295L1.36574 12.6573C0.914365 12.9756 0.806424 13.5995 1.12467 14.0509C1.44292 14.5022 2.06682 14.6102 2.51819 14.2919L15.247 5.31753L13.954 12.7923C13.8598 13.3365 14.2247 13.854 14.7689 13.9482C15.3131 14.0422 15.8305 13.6774 15.9248 13.1332L17.6293 3.27957Z"
+                                                        fill="currentcolor" />
+                                                </svg>
                                             </a>
                                         </div>
-                                        <div class="tp-blog-3-date">
-                                            <h4>{{ date('d', strtotime($blog->created_at)) }}</h4>
-                                            <h4>{{ date('M', strtotime($blog->created_at)) }}</h4>
-                                        </div>
-                                        <div class="tp-blog-3-item-content">
-                                            <h3 class="tp-blog-2-title"><a
-                                                    href="{{ route('blogsingle', $blog->slug) }}">{{ $blog->name ?? '' }}</a>
-                                            </h3>
-                                            <p>{{ stripLetters($blog->description, 135, '...') }}
-                                            </p>
-                                            <div class="tp-blog-3-btn">
-                                                <a class="tp-btn-transparent"
-                                                    href="{{ route('blogsingle', $blog->slug) }}">Read More<span><i
-                                                            class="fa-regular fa-arrow-right"></i></span></a>
-                                            </div>
-                                        </div>
                                     </div>
                                 </div>
-                            @endforeach
+                            </div>
+                        @endforeach
+                    </div>
+                    <div class="row justify-content-center">
+                        <div class="col-12">
+                            <div class="project-content-bottom">
+                                <p>
+                                    We successfully cope with tasks of varying complexity, <br />
+                                    provide long-term guarantees and regularly
+                                </p>
+                                <a href="project-details" class="btn">See All Projects</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="project-shape-wrap">
+                <img class="dark-opacity" src="{{ asset('frontend') }}/assets/img/project/project_shape01.png" alt="Apexa"
+                    class="alltuchtopdown" />
+                <img src="{{ asset('frontend') }}/assets/img/project/project_shape02.png" alt="Apexa" class="rotateme" />
+            </div>
+        </section>
+        <!-- project-area-end -->
+        <!-- request-area -->
+        <section class="request-area request-bg" data-background="assets/img/bg/request_bg.jpg">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="request-content text-center tg-heading-subheading animation-style3">
+                            <h2 class="title tg-element-title text-white">Offering The Best Experience Of Business
+                                Consulting Services</h2>
+                            <div class="content-bottom">
+                                <a href="tel:{{ $setting['site_phone'] ?? '' }}" class="btn text-white">Request a Call</a>
+                                <div class="content-right">
+                                    <div class="icon">
+                                        <i class="flaticon-phone-call"></i>
+                                    </div>
+                                    <div class="content">
+                                        <span class="text-white">Call Us</span>
+                                        <a class="text-white" href="tel:{{ $setting['site_phone'] ?? '' }}">{{ $setting['site_phone'] ?? '' }}</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="request-shape">
+                <img src="assets/img/images/request_shape01.png" alt="Apexa" data-aos="fade-right"
+                    data-aos-delay="400" />
+                <img src="assets/img/images/request_shape02.png" alt="Apexa" data-aos="fade-left"
+                    data-aos-delay="400" />
+            </div>
+        </section>
+        <!-- request-area-end -->
+        <!-- team-area -->
+        <section class="team-area pt-120 pb-90">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-xl-7 col-lg-6">
+                        <div class="section-title mb-40 tg-heading-subheading animation-style3">
+                            <span class="sub-title">{{ $setting['team_title'] ?? 'Our Team' }}</span>
+                            <h2 class="title tg-element-title">
+                                {!! $setting['team_description'] ?? 'Leading the Way in IT <br>
+                        Innovation' !!}
+                            </h2>
+                        </div>
+                    </div>
+                    <div class="col-xl-5 col-lg-6">
+                        <div class="section-content">
+                            <p>Our power of choice is untrammelled and when nothing preven tsbeing able to do what we
+                                like best every pleasure.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-item-wrap">
+                    <div class="row justify-content-center">
+                        @foreach ($teams as $team)
+                            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-8">
+                                <div class="team-item">
+                                    <div class="team-thumb">
+                                        {!! get_image($team->image, '', 'team') !!}
+                                        <div class="team-social">
+                                            <div class="social-toggle-icon">
+                                                <i class="fas fa-share-alt"></i>
+                                            </div>
+                                            <ul class="list-wrap">
+                                                <li>
+                                                    <a href="javascript:void(0)"><i class="fab fa-facebook-f"></i></a>
+                                                </li>
+                                                <li>
+                                                    <a href="javascript:void(0)"><i class="fab fa-twitter"></i></a>
+                                                </li>
+                                                <li>
+                                                    <a href="javascript:void(0)"><i class="fab fa-instagram"></i></a>
+                                                </li>
+                                                <li>
+                                                    <a href="javascript:void(0)"><i class="fab fa-pinterest-p"></i></a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="team-content">
+                                        <h4 class="title"><a href="team-details">{{ $team->name ?? '' }}</a></h4>
+                                        <span>@if ($team->position)
+                                        {{ $team->position ?? '' }}
+                                        @endif</span>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- team-area-end -->
+        <!-- consulting-area -->
+        <section class="consulting-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="consulting-inner-wrap shine-animate-item">
+                            <div class="consulting-content">
+                                <div class="content-left">
+                                    <h2 class="title">40+</h2>
+                                    <span>Consulting <br />
+                                        farm</span>
+                                </div>
+                                <div class="content-right">
+                                    <h2 class="title">Trusted , Happy & Satisfied Businesses</h2>
+                                    <p>When you work with HR Solutions, you get the best. We provide adaptable solutions
+                                        that allow you to be a part of the entire process</p>
+                                </div>
+                            </div>
+                            <div class="consulting-img shine-animate">
+                                <img src="{{ asset('frontend') }}/assets/img/images/consulting_img.jpg" alt="Apexa" />
+                            </div>
+                            <div class="consulting-shape">
+                                <img src="{{ asset('frontend') }}/assets/img/images/consulting_shape.png" alt="Apexa" />
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-    @endif
+        <!-- consulting-area-end -->
+        <!-- testimonial-area -->
+        <section class="testimonial-area">
+            <div class="container">
+                <div class="row align-items-center justify-content-center">
+                    <div class="col-lg-6 order-0 order-lg-2">
+                        <div class="swiper-container testimonial-active">
+                            <div class="swiper-wrapper">
 
-    <section class="tp-cta-3-area p-relative">
-        <div class="container">
-            <div class="tp-cta-3-box-wrapper">
-                <div class="row">
-                    <div class="col-xl-4 col-lg-6 col-md-6">
-                        <div class="tp-cta-3-wrapper d-flex align-items-center justify-content-center mb-30">
-                            <div class="tp-cta-3-icon">
-                                <span><i class="fa-sharp fa-solid fa-location-dot"></i></span>
+                                @foreach ($revs as $rev)
+                                <div class="swiper-slide">
+                                    <div class="testimonial-item">
+                                        <div class="testimonial-info">
+                                            <h4 class="title">{{ $rev->name ?? '' }}</h4>
+                                            <span>{{ $rev->position ?? '' }}</span>
+                                        </div>
+                                        <div class="testimonial__rating">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                        <div class="testimonial-content">
+                                            <p>“{!! $rev->description ?? '' !!}”</p>
+                                            <div class="icon"><i class="fas fa-quote-right"></i></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                @endforeach
                             </div>
-                            <div class="tp-cta-3-content">
-                                <h3 class="tp-cta-3-title">Address</h3>
-                                <a href="{{ $setting['site_location_url'] ?? '' }}"
-                                    target="_blank">{{ $setting['site_location'] ?? '' }}</a>
+                        </div>
+                        <div class="testimonial-slider-dot">
+                            <div class="swiper testimonial-nav">
+                                <div class="swiper-wrapper">
+                                    @foreach ($revs as $rev)
+                                        <div class="swiper-slide">
+                                            <button>{!! get_image($rev->image, '', 'home-review') !!}</button>
+                                        </div>
+                                    @endforeach
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-xl-4 col-lg-6 col-md-6">
-                        <div class="tp-cta-3-wrapper d-flex align-items-center justify-content-center mb-30">
-                            <div class="tp-cta-3-icon">
-                                <span><i class="fa-solid fa-phone"></i></span>
-                            </div>
-                            <div class="tp-cta-3-content">
-                                <h3 class="tp-cta-3-title">Call Us On</h3>
-                                <a href="tel:{{ $setting['site_phone'] ?? '' }}">{{ $setting['site_phone'] ?? '' }}</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-4 col-lg-6 col-md-6">
-                        <div class="tp-cta-3-wrapper d-flex align-items-center justify-content-center mb-30">
-                            <div class="tp-cta-3-icon">
-                                <span><i class="fa-solid fa-envelope"></i></span>
-                            </div>
-                            <div class="tp-cta-3-content">
-                                <h3 class="tp-cta-3-title">E-mail Us</h3>
-                                <a
-                                    href="mailto:{{ $setting['site_email'] ?? '' }}">{{ $setting['site_email'] ?? '' }}</a>
+                    <div class="col-lg-6 col-md-8">
+                        <div class="testimonial-img-wrap">
+                            <img src="{{ asset('frontend') }}/assets/img/images/testimonial_img.png" alt="Apexa" />
+                            <div class="img-shape">
+                                <img src="{{ asset('frontend') }}/assets/img/images/testimonial_shape01.png" alt="Apexa" />
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+            <div class="testimonial-shape-wrap">
+                <img src="{{ asset('frontend') }}/assets/img/images/testimonial_shape05.png" alt="Apexa" data-aos="fade-up"
+                    data-aos-delay="400" />
+                <img class="dark-opacity" src="assets/img/images/testimonial_shape06.png" alt="Apexa"
+                    data-aos="fade-left" data-aos-delay="400" />
+            </div>
+        </section>
+        <!-- testimonial-area-end -->
+        <!-- blog-post-area -->
+        <section class="blog-post-area blog-post-bg">
+            <div class="bg-img position-absolute top-0 bottom-0 start-0 w-100 h-100 end-0"
+                data-background="assets/img/bg/blog_post_bg.jpg"></div>
+            <div class="container position-relative z-1">
+                <div class="row justify-content-center">
+                    <div class="col-xl-6">
+                        <div class="section-title text-center mb-40 tg-heading-subheading animation-style3">
+                            <span class="sub-title">{{ $setting['blog_title'] ?? 'Latest News' }}</span>
+                            <h2 class="title tg-element-title text-primary"> {!! $setting['blog_info'] ?? 'Taking your business to <br> the next level' !!}</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                     @foreach ($blogs as $blog)
+                        <div class="col-xl-4 col-lg-6 col-md-10">
+                            <div class="blog-post-item shine-animate-item">
+                                <div class="blog-post-thumb">
+                                            <a class="shine-animate" href="{{ route('blogsingle', $blog->slug) }}">
+                                        {!! get_image($blog->image, '', 'home-blog') !!}
+                                    </a>
+                                    {{-- <a href="blog" class="post-tag">Business</a> --}}
+                                </div>
+                                <div class="blog-post-content">
+                                    <h2 class="title">
+                                            <a href="{{ route('blogsingle', $blog->slug) }}">{{$blog->name ?? '' }}</a>
+                                        </h2>
+                                    <div class="blog-avatar">
+                                        <div class="avatar-thumb">
+                                            <img src="{{ asset('frontend') }}/assets/img/blog/blog_avatar01.png" alt="Apexa" />
+                                        </div>
+                                        <div class="avatar-content">
+                                            {{-- <p>By <a href="blog-details">Doman Smith</a></p> --}}
+                                        </div>
+                                    </div>
+                                    <div class="blog-post-meta">
+                                        <ul class="list-wrap">
+                                            <li>
+                                                <a href="{{ route('blogsingle', $blog->slug) }}" class="btn">Read More</a>
+                                            </li>
+                                            <li><i class="fas fa-calendar-alt"></i>{{ date('d', strtotime($blog->created_at)) }} {{ date('M', strtotime($blog->created_at)) }}</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+
+                </div>
+            </div>
+            <div class="blog-shape-wrap">
+                <img src="{{ asset('frontend') }}/assets/img/images/blog_shape01.png" alt="Apexa" data-aos="fade-right" data-aos-delay="400" />
+                <img src="{{ asset('frontend') }}/assets/img/images/blog_shape02.png" alt="Apexa" data-aos="fade-left" data-aos-delay="400" />
+            </div>
+        </section>
+        <!-- blog-post-area-end -->
+        <!-- call-back-area -->
+        <section class="call-back-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="call-back-content">
+                            <div class="section-title white-title mb-10 tg-heading-subheading animation-style3">
+                                <h2 class="title tg-element-title">Talk to us</h2>
+                            </div>
+                            <p>Looking for the Best IT <br> Business Solutions?</p>
+                            <div class="shape">
+                                <img class="dark-opacity" src="assets/img/images/call_back_shape.png" alt="Apexa"
+                                    data-aos="fade-right" data-aos-delay="400" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="call-back-form">
+                            <form action="{{ route('inquiry') }}" id="contact-form" method="POST">
+                                 @csrf      
+                                <div class="row">
+                                    @if(session('success'))
+                                        <div class="alert alert-success">
+                                                {{ session('success') }}
+                                          </div>
+                                      @endif
+                                      {{-- Error Messages --}}
+                                    @if($errors->any())s
+                                        <div class="alert alert-danger">
+                                            <ul class="mb-0">
+                                                @foreach($errors->all() as $error)
+                                                    <li>{{ $error }}</li>
+                                                @endforeach
+                                            </ul>
+                                        </div>
+                                    @endif
+                                    <div class="col-md-6">
+                                        <div class="form-grp">
+                                            <input type="text" name="name" placeholder="Name *" value="{{ old('name') }}" />
+                                            <span class="text-danger">
+                                            <span id="name-error"></span>
+                                    </span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-grp">
+                                            <input type="email" name="email" placeholder="E-mail *" value="{{ old('email') }}" />
+                                            <span class="text-danger">
+                                            <span id="email-error"></span>
+
+                                    </span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-grp">
+                                            <input type="number" name="phone" placeholder="Phone *" value="{{ old('phone') }}" />
+                                            <span class="text-danger">
+                                            <span id="phone-error"></span>
+                                    </span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-grp">
+                                            <input type="text" name="subject" placeholder="Subject *" value="{{ old('subject') }}" />
+                                            <span class="text-danger">
+                                            <span id="subject-error"></span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-grp">
+                                            <input type="text" name="message" placeholder="Message *" value="{{ old('message') }}" />
+                                             <span class="text-danger">
+                                             <span id="message-error"></span>
+                                             </span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <button id="contact_submit" type="submit" class="btn">Submit</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- call-back-area-end -->
+    </main>
 @endsection

@@ -24,12 +24,13 @@ class FrontendController extends Controller
         $counters = Counter::oldest('order')->get();
         $blogs = News::where('status', 1)->limit(6)->get();
         $teams = Member::where('status', 1)->oldest('order')->limit(8)->get();
-        $services = Services::where('status', 1)->oldest('order')->limit(3)->get();
+        $services = Services::where('status', 1)->oldest('order')->limit(4)->get();
         $projects = Project::where('status', 1)->oldest('order')->limit(4)->get();
         $projects = Project::where('status', 1)->oldest('order')->limit(4)->get();
         $whowe = Page::whereId(7)->where('status', 1)->first();
+        $revs = Review::where('status', 1)->limit(5)->get();
 
-        return view('frontend.home.index', compact(['sliders', 'partners', 'blogs', 'teams', 'counters', 'services', 'projects', 'whowe']));
+        return view('frontend.home.index', compact(['sliders', 'partners', 'blogs', 'teams', 'counters', 'services', 'projects', 'whowe', 'revs']));
     }
 
     public function pagesingle($slug)
@@ -86,11 +87,10 @@ class FrontendController extends Controller
 
                 $projects = Project::where('status', 1)->oldest('order')->get();
                 return view('frontend.page.project', compact(['content', 'projects']));
-            }
-             elseif ($content->template == 14) {
+            } elseif ($content->template == 14) {
 
                 return view('frontend.page.project', compact(['content']));
-            }elseif ($content->template == 13) {
+            } elseif ($content->template == 13) {
 
                 $all_blogs = News::get();
                 $all_pages = Page::where('status', 1)->get();

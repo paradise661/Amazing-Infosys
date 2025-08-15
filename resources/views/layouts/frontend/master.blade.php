@@ -12,17 +12,17 @@
         href="{{ asset($setting['site_fav_icon'] ? get_media($setting['site_fav_icon'])->fullurl : 'frontend/images/logo.png') }}"
         type="image/x-icon">
     @yield('seo')
+    <link rel="stylesheet" href="{{ asset('frontend') }}/assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="{{ asset('frontend') }}/assets/css/animate.min.css" />
+    <link rel="stylesheet" href="{{ asset('frontend') }}/assets/css/magnific-popup.css" />
+    <link rel="stylesheet" href="{{ asset('frontend') }}/assets/css/fontawesome-all.min.css" />
+    <link rel="stylesheet" href="{{ asset('frontend') }}/assets/css/flaticon.css" />
+    <link rel="stylesheet" href="{{ asset('frontend') }}/assets/css/odometer.css" />
+    <link rel="stylesheet" href="{{ asset('frontend') }}/assets/css/swiper-bundle.css" />
+    <link rel="stylesheet" href="{{ asset('frontend') }}/assets/css/aos.css" />
+    <link rel="stylesheet" href="{{ asset('frontend') }}/assets/css/default.css" />
+    <link rel="stylesheet" href="{{ asset('frontend') }}/assets/css/main.css" />
 
-    <link rel="stylesheet" href="{{ asset('frontend') }}/assets/css/bootstrap.css">
-    <link rel="stylesheet" href="{{ asset('frontend') }}/assets/css/animate.css">
-    <link rel="stylesheet" href="{{ asset('frontend') }}/assets/css/swiper-bundle.css">
-    <link rel="stylesheet" href="{{ asset('frontend') }}/assets/css/slick.css">
-    <link rel="stylesheet" href="{{ asset('frontend') }}/assets/css/magnific-popup.css">
-    <link rel="stylesheet" href="{{ asset('frontend') }}/assets/css/font-awesome-pro.css">
-    <link rel="stylesheet" href="{{ asset('frontend') }}/assets/css/flaticon.css">
-    <link rel="stylesheet" href="{{ asset('frontend') }}/assets/css/spacing.css">
-    <link rel="stylesheet" href="{{ asset('admin/assets/css/toastr.css') }}">
-    <link rel="stylesheet" href="{{ asset('frontend') }}/assets/css/main.css">
 </head>
 
 <body>
@@ -34,23 +34,32 @@
 
     @include('layouts.frontend.footer')
 
-    <script src="{{ asset('frontend') }}/assets/js/vendor/jquery.js"></script>
-    <script src="{{ asset('frontend') }}/assets/js/vendor/waypoints.js"></script>
-    <script src="{{ asset('frontend') }}/assets/js/bootstrap-bundle.js"></script>
-    <script src="{{ asset('frontend') }}/assets/js/meanmenu.js"></script>
+    <script src="{{ asset('frontend') }}/assets/js/vendor/jquery-3.6.0.min.js"></script>
+    <script src="{{ asset('frontend') }}/assets/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ asset('frontend') }}/assets/js/jquery.magnific-popup.min.js"></script>
+    <script src="{{ asset('frontend') }}/assets/js/jquery.odometer.min.js"></script>
+    <script src="{{ asset('frontend') }}/assets/js/jquery.appear.js"></script>
+    <script src="{{ asset('frontend') }}/assets/js/gsap.js"></script>
+    <script src="{{ asset('frontend') }}/assets/js/ScrollTrigger.js"></script>
+    <script src="{{ asset('frontend') }}/assets/js/SplitText.js"></script>
+    <script src="{{ asset('frontend') }}/assets/js/gsap-animation.js"></script>
+    <script src="{{ asset('frontend') }}/assets/js/jquery.parallaxScroll.min.js"></script>
     <script src="{{ asset('frontend') }}/assets/js/swiper-bundle.js"></script>
-    <script src="{{ asset('frontend') }}/assets/js/slick.js"></script>
-    <script src="{{ asset('frontend') }}/assets/js/range-slider.js"></script>
-    <script src="{{ asset('frontend') }}/assets/js/magnific-popup.js"></script>
-    <script src="{{ asset('frontend') }}/assets/js/nice-select.js"></script>
-    <script src="{{ asset('frontend') }}/assets/js/purecounter.js"></script>
-    <script src="{{ asset('frontend') }}/assets/js/countdown.js"></script>
-    <script src="{{ asset('frontend') }}/assets/js/wow.js"></script>
-    <script src="{{ asset('frontend') }}/assets/js/isotope-pkgd.js"></script>
-    <script src="{{ asset('frontend') }}/assets/js/imagesloaded-pkgd.js"></script>
-    <script src="{{ asset('admin/assets/js/toast-new.js') }}"></script>
-    <script src="{{ asset('frontend') }}/assets/js/ajax-form.js"></script>
+    {{--
+    <script src="{{ asset('frontend') }}/assets/js/ajax-form.js"></script> --}}
+    <script src="{{ asset('frontend') }}/assets/js/wow.min.js"></script>
+    <script src="{{ asset('frontend') }}/assets/js/aos.js"></script>
     <script src="{{ asset('frontend') }}/assets/js/main.js"></script>
+    <script>
+        const circles = document.querySelectorAll(".circle");
+        circles.forEach((circle) => {
+            circle.innerHTML = circle.textContent.replace(/\S/g, "<span>$&</span>");
+            const elements = circle.querySelectorAll("span");
+            for (let i = 0; i < elements.length; i++) {
+                elements[i].style.transform = "rotate(" + i * 17 + "deg)";
+            }
+        });
+    </script>
 </body>
 
 </html>

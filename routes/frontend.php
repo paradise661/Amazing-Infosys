@@ -30,4 +30,4 @@ Route::get('/projects/{slug}', [FrontendController::class, 'projectsingle'])->na
 
 
 Route::post('/inquiry', [ContactsController::class, 'inquiry'])->name('inquiry');
-Route::post('/pkbooking', [PackageInquiryController::class, 'pkbooking'])->name('pkbooking');
+// Route::post('/pkbooking', [PackageInquiryController::class, 'pkbooking'])->name('pkbooking');

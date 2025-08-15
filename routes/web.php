@@ -25,7 +25,6 @@ use App\Http\Controllers\Admin\ServicesController;
 use App\Http\Controllers\Admin\DestinationController;
 use App\Http\Controllers\Admin\BlogcategoryController;
 use App\Http\Controllers\Admin\UserRegisterController;
-use App\Http\Controllers\Admin\PackageInquiryController;
 use App\Http\Controllers\Admin\ProjectController;
 
 /*
@@ -101,7 +100,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
 
     Route::resource('blog', NewsController::class);
     Route::resource('blogcategory', BlogcategoryController::class);
-    Route::resource('download', DownloadController::class);
+    // Route::resource('download', DownloadController::class);
     Route::resource('faq', FaqController::class);
     Route::resource('members', MemberController::class);
     Route::resource('page', PageController::class);
@@ -130,8 +129,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
     | Gallery Routes
     |--------------------------------------------------------------------------
      */
-    Route::resource('galleries', GalleryController::class);
-    Route::get('/gallery/delete-file/{id}', [GalleryController::class, 'documentDelete'])->name('document.delete');
+    // Route::resource('galleries', GalleryController::class);
+    // Route::get('/gallery/delete-file/{id}', [GalleryController::class, 'documentDelete'])->name('document.delete');
 
     /*
     |--------------------------------------------------------------------------
