@@ -32,7 +32,7 @@
         <div class="row">
             <div class="col-lg-6">
                 <div class="breadcrumb__content" style="padding-top: 150px;">
-                    <h2 class="title">About Us</h2>
+                    <h2 class="title capitalize">{{ ucfirst($name ?? '') }}</h2>
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             {{-- <li class="breadcrumb-item"><a href="/">Home></a></li>

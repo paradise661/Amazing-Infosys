@@ -58,7 +58,8 @@ class FrontendController extends Controller
             } elseif ($content->template == 5) {
 
                 $reviews = Review::oldest('order')->get();
-                return view('frontend.page.review', compact(['content', 'reviews']));
+                $revs = Review::where('status', 1)->get();
+                return view('frontend.page.review', compact(['content', 'reviews', 'revs']));
             } elseif ($content->template == 6) {
 
                 $faqs = Faq::oldest('order')->get();
@@ -86,7 +87,12 @@ class FrontendController extends Controller
             } elseif ($content->template == 12) {
 
                 $projects = Project::where('status', 1)->oldest('order')->get();
-                return view('frontend.page.project', compact(['content', 'projects']));
+                // $category = Project::orderBy('category')->where('status', 1)->oldest()->get();
+                $category = $category = Project::where('status', 1)
+                    ->oldest('order')
+                    ->get()
+                    ->groupBy('category');
+                return view('frontend.page.project', compact(['content', 'projects', 'category']));
             } elseif ($content->template == 14) {
 
                 return view('frontend.page.project', compact(['content']));

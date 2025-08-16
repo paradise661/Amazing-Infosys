@@ -105,7 +105,7 @@ $menus = getMenus(1);
 
                             <div class="tgmenu__action d-none d-md-block">
                                 <ul class="list-wrap">
-                                    <li class="header-search">
+                                    {{-- <li class="header-search">
                                         <a href="javascript:void(0)" class="search-open-btn">
                                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="none">
                                                 <path
@@ -114,13 +114,13 @@ $menus = getMenus(1);
                                                     stroke-linejoin="round" />
                                             </svg>
                                         </a>
-                                    </li>
+                                    </li> --}}
                                     <li class="header-btn">
-                                        <div
+                                        {{-- <div
                                             class="dark-light-switcher d-flex justify-content-center align-items-center shadow rounded-3">
                                             <i class="theme-icon fas fa-sun"></i>
                                             <i class="theme-icon fas fa-moon"></i>
-                                        </div>
+                                        </div> --}}
                                     </li>
                                     <li class="offCanvas-menu">
                                         <a href="javascript:void(0)" class="menu-tigger">

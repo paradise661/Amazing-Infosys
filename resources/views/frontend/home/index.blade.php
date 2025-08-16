@@ -631,19 +631,33 @@
                                  @csrf      
                                 <div class="row">
                                     @if(session('success'))
-                                        <div class="alert alert-success">
-                                                {{ session('success') }}
-                                          </div>
-                                      @endif
-                                      {{-- Error Messages --}}
-                                    @if($errors->any())s
-                                        <div class="alert alert-danger">
-                                            <ul class="mb-0">
-                                                @foreach($errors->all() as $error)
-                                                    <li>{{ $error }}</li>
-                                                @endforeach
-                                            </ul>
-                                        </div>
+                                        <script>
+                                                Swal.fire({
+                                                toast: true,
+                                                position: 'top-end',  // side alert
+                                                icon: 'success',
+                                                title: "{{ session('success') }}",
+                                                showConfirmButton: false,
+                                                timer: 3000,
+                                                timerProgressBar: true
+                                            });
+                                        </script>
+                                    @endif
+
+                                    {{-- Error Alerts --}}
+                                    @if($errors->any())
+                                        <script>
+                                            Swal.fire({
+                                                toast: true,
+                                                position: 'top-end',
+                                                icon: 'error',
+                                                title: 'Please check the form',
+                                                html: `{!! implode('<br>', $errors->all()) !!}`,
+                                                showConfirmButton: false,
+                                                timer: 4000,
+                                                timerProgressBar: true
+                                                });
+                                        </script>
                                     @endif
                                     <div class="col-md-6">
                                         <div class="form-grp">

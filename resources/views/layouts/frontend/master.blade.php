@@ -22,6 +22,8 @@
     <link rel="stylesheet" href="{{ asset('frontend') }}/assets/css/aos.css" />
     <link rel="stylesheet" href="{{ asset('frontend') }}/assets/css/default.css" />
     <link rel="stylesheet" href="{{ asset('frontend') }}/assets/css/main.css" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 
 </head>
 
@@ -60,6 +62,8 @@
             }
         });
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 </body>
 
 </html>

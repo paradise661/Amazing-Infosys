@@ -56,7 +56,7 @@ class ContactsController extends Controller
         ]);
 
         if ($validator->fails()) {
-            return redirect()->to(url()->previous() . '#contact-form')
+            return redirect()->to(url()->previous())
                 ->withErrors($validator)
                 ->withInput();
             // Keeps old input values
@@ -64,7 +64,7 @@ class ContactsController extends Controller
 
         Contacts::create($request->all());
 
-        return redirect()->to(url()->previous() . '#contact-form')->with('success', 'Your enquiry has been submitted successfully.');
+        return redirect()->to(url()->previous())->with('success', 'Your enquiry has been submitted successfully.');
 
     }
 }
