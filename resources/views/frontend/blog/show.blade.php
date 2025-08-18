@@ -1,89 +1,136 @@
 @extends('layouts.frontend.master')
 @section('seo')
     @include('frontend.global.seo', [
-        'name' => $content->name ?? '',
-        'title' => $content->seo_title ?? $content->name,
-        'description' => $content->seo_description ?? '',
-        'keyword' => $content->seo_keywords ?? '',
-        'schema' => $content->seo_schema ?? '',
-        'seoimage' => $content->image ?? '',
-        'created_at' => $content->created_at,
-        'updated_at' => $content->updated_at,
-    ])
+    'name' => $content->name ?? '',
+    'title' => $content->seo_title ?? $content->name,
+    'description' => $content->seo_description ?? '',
+    'keyword' => $content->seo_keywords ?? '',
+    'schema' => $content->seo_schema ?? '',
+    'seoimage' => $content->image ?? '',
+    'created_at' => $content->created_at,
+    'updated_at' => $content->updated_at,
+])
 @endsection
 
 @section('content')
-    @include('frontend.global.banner', [
+                    @include('frontend.global.banner', [
         'name' => $content->name,
         'banner' => $content->banner ?? null,
         'parentname' => 'Blogs',
         'parentlink' => '/blogs',
     ])
 
-    <section class="tp-postbox-area pt-120 pb-90">
-        <div class="container">
-            <div class="row">
-                <div class="col-xxl-8 col-xl-8 col-lg-8">
-                    <div class="tp-postbox-wrapper">
-                        <article class="tp-postbox-item mb-60">
-                            <div class="tp-postbox-item-thumb p-relative">
-                                {!! get_image($content->image, 'w-100', 'blog') !!}
-                                <div class="tp-postbox-tag">
-                                    <p><i class="fa-light fa-calendar-days"></i>
-                                        {{ date('F d, Y', strtotime($content->created_at)) }}</p>
-                                </div>
-                            </div>
-                            <div class="tp-postbox-details-content pb-4">
-                                {!! $content->description ?? '' !!}
-                            </div>
-                        </article>
-                    </div>
-                </div>
-
-                <div class="col-xxl-4 col-xl-4 col-lg-4">
-                    <div class="tp-sidebar-wrapper">
-
-                        @if ($blogs->isNotEmpty())
-                            <div class="tp-sidebar-widget mb-60">
-                                <h3 class="tp-sidebar-widget-title">Recent Post</h3>
-                                <div class="tp-sidebar-widget-content">
-                                    <div class="tp-sidebar-post tp-rc__post">
-                                        @foreach ($blogs as $blog)
-                                            <div class="tp-rc__post mb-20 d-flex align-items-center">
-                                                <div class="tp-rc__post-thumb mr-20">
-                                                    <a href="{{ route('blogsingle', $blog->slug) }}">
-                                                        {!! get_image($blog->image, '', 'sidebar') !!}
-                                                    </a>
-                                                </div>
-                                                <div class="tp-rc__post-content">
-                                                    <div class="tp-rc__meta">
-                                                        <span>July 21, 2023</span>
-                                                    </div>
-                                                    <h3 class="tp-rc__post-title">
-                                                        <a
-                                                            href="{{ route('blogsingle', $blog->slug) }}">{{ $blog->name }}</a>
-                                                    </h3>
+                    <section class="tp-postbox-area pt-120 pb-90">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-xxl-8 col-xl-8 col-lg-8">
+                                    <div class="tp-postbox-wrapper">
+                                        <article class="tp-postbox-item mb-60">
+                                            <div class="tp-postbox-item-thumb p-relative">
+                                                {!! get_image($content->image, 'w-100', 'blog') !!}
+                                                <div class="tp-postbox-tag">
+                                                    <p><i class="fa-light fa-calendar-days"></i>
+                                                        {{ date('F d, Y', strtotime($content->created_at)) }}</p>
                                                 </div>
                                             </div>
-                                        @endforeach
+                                            <div class="tp-postbox-details-content pb-4">
+                                                {!! $content->description ?? '' !!}
+                                            </div>
+                                        </article>
+                                    </div>
+                                </div>
 
+                                <div class="col-xxl-4 col-xl-4 col-lg-4">
+                                    <div class="tp-sidebar-wrapper">
+
+                                        {{-- @if ($blogs->isNotEmpty())
+                                            <div class="tp-sidebar-widget mb-60">
+                                                <h3 class="tp-sidebar-widget-title">Recent Post</h3>
+                                                <div class="tp-sidebar-widget-content">
+                                                    <div class="tp-sidebar-post tp-rc__post">
+                                                        @foreach ($blogs as $blog)
+                                                            <div class="tp-rc__post mb-20 d-flex align-items-center">
+                                                                <div class="tp-rc__post-thumb mr-20">
+                                                                    <a href="{{ route('blogsingle', $blog->slug) }}">
+                                                                        {!! get_image($blog->image, '', 'sidebar') !!}
+                                                                    </a>
+                                                                </div>
+                                                                <div class="tp-rc__post-content">
+                                                                    <div class="tp-rc__meta">
+                                                                        <span>July 21, 2023</span>
+                                                                    </div>
+                                                                    <h3 class="tp-rc__post-title">
+                                                                        <a
+                                                                            href="{{ route('blogsingle', $blog->slug) }}">{{ $blog->name }}</a>
+                                                                    </h3>
+                                                                </div>
+                                                            </div>
+                                                        @endforeach
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        @endif --}}
+                                            <div class="sidebar__widget">
+                                                <h4 class="sidebar__widget-title">Latest Posts</h4>
+                                                <div class="sidebar__post-list">
+                                                    @foreach ($blogs as $blog)
+                                                        <div class="sidebar__post-item">
+                                                            <div class="sidebar__post-thumb">
+                                                                <a href="{{ route('blogsingle', $blog->slug) }}">{!! get_image($blog->image, '', 'home-blog') !!}</a>
+                                                            </div>
+                                                            <div class="sidebar__post-content">
+                                                                <h5 class="title"><a
+                                                                                href="{{ route('blogsingle', $blog->slug) }}">{{ $blog->name }}</a></h5>
+                                                                <span class="date"><i class="flaticon-time"></i>{{ date('d', strtotime($blog->created_at)) }} {{ date('M', strtotime($blog->created_at)) }}</span>
+                                                            </div>
+                                                        </div>
+                                                    @endforeach
+                                                    {{-- <div class="sidebar__post-item">
+                                                        <div class="sidebar__post-thumb">
+                                                            <a href="blog-details"><img src="assets/img/blog/sb_post02.jpg" alt="Apexa" /></a>
+                                                        </div>
+                                                        <div class="sidebar__post-content">
+                                                            <h5 class="title"><a href="blog-details">know how to pursue pleasure rationally</a></h5>
+                                                            <span class="date"><i class="flaticon-time"></i>Sep 15, 2024</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="sidebar__post-item">
+                                                        <div class="sidebar__post-thumb">
+                                                            <a href="blog-details"><img src="assets/img/blog/sb_post03.jpg" alt="Apexa" /></a>
+                                                        </div>
+                                                        <div class="sidebar__post-content">
+                                                            <h5 class="title"><a href="blog-details">there anyone who loves</a></h5>
+                                                            <span class="date"><i class="flaticon-time"></i>Sep 15, 2024</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="sidebar__post-item">
+                                                        <div class="sidebar__post-thumb">
+                                                            <a href="blog-details"><img src="assets/img/blog/sb_post04.jpg" alt="Apexa" /></a>
+                                                        </div>
+                                                        <div class="sidebar__post-content">
+                                                            <h5 class="title"><a href="blog-details">deno weuine easiure and praising</a></h5>
+                                                            <span class="date"><i class="flaticon-time"></i>Sep 15, 2024</span>
+                                                        </div>
+                                                    </div> --}}
+                                                </div>
+                                            </div>
+
+                                        {{-- <div class="tp-service-widget-touch text-center mb-50"> --}}
+                                            <div class="sidebar__widget">
+                                            <div class="tp-service-widget-touch-icon">
+                                                {{-- <span>
+                                                    <i class="fa-solid fa-phone"></i>
+                                                </span> --}}
+                                            </div>
+                                            <h3 class="tp-service-widget-title">GET TOUCH</h3>
+                                            <p>For fast service</p>
+                                            <a href="tel:{{ $setting['site_phone'] ?? '' }}">{{ $setting['site_phone'] ?? '' }}</a>
+                                        </div>
+                                        {{-- </div> --}}
                                     </div>
                                 </div>
                             </div>
-                        @endif
-                        <div class="tp-service-widget-touch text-center mb-50">
-                            <div class="tp-service-widget-touch-icon">
-                                <span>
-                                    <i class="fa-solid fa-phone"></i>
-                                </span>
-                            </div>
-                            <h3 class="tp-service-widget-title">GET TOUCH</h3>
-                            <p>For fast service</p>
-                            <a href="tel:{{ $setting['site_phone'] ?? '' }}">{{ $setting['site_phone'] ?? '' }}</a>
                         </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+                    </section>
 @endsection

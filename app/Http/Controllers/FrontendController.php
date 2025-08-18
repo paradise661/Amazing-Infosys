@@ -29,8 +29,10 @@ class FrontendController extends Controller
         $projects = Project::where('status', 1)->oldest('order')->limit(4)->get();
         $whowe = Page::whereId(7)->where('status', 1)->first();
         $revs = Review::where('status', 1)->limit(5)->get();
+        $request = Page::where('status', 1)->where('slug', 'request-area')->first();
+        $consult = Page::where('status',1)->where('slug','consulting-area')->first();
 
-        return view('frontend.home.index', compact(['sliders', 'partners', 'blogs', 'teams', 'counters', 'services', 'projects', 'whowe', 'revs']));
+        return view('frontend.home.index', compact(['sliders', 'partners', 'blogs', 'teams', 'counters', 'services', 'projects', 'whowe', 'revs', 'request','consult']));
     }
 
     public function pagesingle($slug)
@@ -47,7 +49,9 @@ class FrontendController extends Controller
                 $counters = Counter::oldest('order')->get();
                 $projects = Project::where('status', 1)->oldest('order')->limit(4)->get();
                 $faqs = Faq::where('status', 1)->oldest('order')->limit(3)->get();
-                return view('frontend.page.about', compact(['content', 'teams', 'reviews', 'counters', 'projects', 'faqs']));
+                $partners = Partner::where('status', 1)->oldest('order')->get();
+                $services = Services::where('status', 1)->get();
+                return view('frontend.page.about', compact(['content', 'teams', 'reviews', 'counters', 'projects', 'faqs', 'partners', 'services']));
             } elseif ($content->template == 3) {
 
                 return view('frontend.page.contact', compact('content'));

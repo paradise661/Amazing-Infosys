@@ -21,7 +21,7 @@
         'parentlink' => '',
     ])
 
-    @if (!empty($content->image || $content->description))
+    {{-- @if (!empty($content->image || $content->description))
         <section class="tp-about-area p-relative pt-150 pb-130">
             <div class="tp-about-shape">
                 <img src="{{ asset('frontend') }}/assets/img/about/about-bg.png" alt="">
@@ -310,6 +310,287 @@
                         </div>
                         {!! get_image($setting['about_contact_image']) !!}
                     </div>
+                </div>
+            </div>
+        </div>
+    </section> --}}
+
+    <section id="about" class="about-area pt-120 pb-120">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6">
+                        <div class="about-img-wrap">
+                            <div class="mask-img-wrap">
+                                 @if(!$setting['homepage_image'] == Null)
+                                     {!! get_image($setting['homepage_image']) !!}
+                                @else
+                                    <img src="{{ asset('frontend') }}/assets/img/images/about_img01.jpg" alt="pexa" />
+
+                                @endif
+                            </div>
+                            <div class="shape">
+                                <img src="{{ asset('frontend') }}/assets/img/images/about_shape01.png" alt="Apexa" />
+                            </div>
+                            <div class="experience-year">
+                                <div class="icon">
+                                    <i class="flaticon-trophy"></i>
+                                </div>
+                                <div class="content">
+                                    <h6 class="circle rotateme">Years Of - Experience 25 -</h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="about-content">
+                            <div class="section-title mb-35 tg-heading-subheading animation-style3">
+                                <span class="sub-title">Simply Know About</span>
+                                <h2 class="title tg-element-title">
+                                    About Company
+                                </h2>
+                            </div>
+                             <div class="about-list">
+                                <ul class="list-wrap">
+                                    <li>
+                                        <div class="icon">
+                                            <i class="flaticon-target"></i>
+                                        </div>
+                                        <div class="content">
+                                            <h4 class="title">Business Solutions</h4>
+                                            <p>Semper egetuis tellus urna condi</p>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="icon">
+                                            <i class="flaticon-profit"></i>
+                                        </div>
+                                        <div class="content">
+                                            <h4 class="title">Quality Services</h4>
+                                            <p>Semper egetuis tellus urna condi</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <p>{!! $setting['homepage_description'] ?? '' !!}</p>
+                            <div class="about-bottom">
+                                <div class="author-wrap">
+                                    @foreach ($teams as $team)
+                                        @if ($team->position == 'CEO')
+
+                                            <div class="thumb">
+                                                {!! get_image($team->image, '', 'team') !!}
+                                            </div>
+                                            <div class="content">
+                                                {{-- <img src="assets/img/images/sign.png" alt="Apexa" /> --}}
+                                                <h4 class="title">{{ $team->name ?? '' }} <span>, @if ($team->position)
+                                                    {{ $team->position ?? '' }}
+                                                @endif</span></h4>
+                                            </div>
+                                        @endif
+                                    @endforeach
+                                </div>
+                                <a href="contact-us" class="btn btn-two">Contact Us</a>
+                            </div>
+                            {{-- <div class="about-shape-wrap">
+                                <img src="assets/img/images/about_shape03.png" alt="Apexa" />
+                                <img src="assets/img/images/about_shape04.png" alt="Apexa" class="ribbonRotate" />
+                            </div> --}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{-- <div class="about-left-shape dark-opacity">
+                <img class="dark-opacity" src="assets/img/images/about_shape02.png" alt="Apexa" />
+            </div> --}}
+        </section>
+
+        <!-- banner-area-end -->
+        <!-- brand-area -->
+        <div class="brand-area">
+            <div class="container">
+                <div class="swiper-container brand-active">
+                    <div class="swiper-wrapper">
+                        @foreach ($partners as $item)
+                            <div class="swiper-slide">
+                                <div class="brand-item">
+                                    {!! get_image($item->image) !!}
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+         <!-- services-area -->
+    <section class="services-area services-bg position-relative">
+        <div class="bg-img position-absolute top-0 bottom-0 start-0 end-0 z-0"
+            data-background="{{ asset('frontend') }}/assets/img/bg/services_bg.jpg"></div>
+        <div class="container position-relative z-1">
+            <div class="row justify-content-center">
+                <div class="col-xl-6 col-lg-8">
+                    <div class="section-title text-center mb-40 tg-heading-subheading animation-style3">
+                        <span class="sub-title">WHAT WE OFFER</span>
+                        <h2 class="title tg-element-title text-primary">Unlocking the Power of <br> Technology</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="services-item-wrap">
+                <div class="row justify-content-center">
+                    @foreach ($services as $srvs)
+                        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-8">
+                            <div class="services-item shine-animate-item">
+                                <div class="services-thumb">
+                                    {{-- <a href="services-details" class="shine-animate"><img
+                                            src="assets/img/services/services_img01.jpg" alt="Apexa" /></a> --}}
+                                    <a href="{{ route('servicesingle', $srvs->slug) }}" class="shine-animate">
+                                    {!! get_image($srvs->image, '', 'home-service') !!}
+                                    </a>
+                                </div>
+                                <div class="services-content">
+                                    <div class="icon">
+                                        <i class="flaticon-profit"></i>
+                                    </div>
+                                    <h4 class="title"><a href="{{ route('servicesingle', $srvs->slug) }}">{{ $srvs->name ?? '' }}</a></h4>
+                                    <p>{{ stripLetters($srvs->description, 135, '...') }}</p>
+                                    <a href="{{ route('servicesingle', $srvs->slug) }}" class="btn">Read More</a>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+
+                </div>
+            </div>
+            <div class="services-bottom-content">
+                <p>Empowering Businesses through Strategic Consulting With Us</p>
+                <a href="services" class="btn">See All Services</a>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="project-area">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-xl-6 col-lg-7">
+                    <div class="section-title text-center mb-50 tg-heading-subheading animation-style3">
+                        <span class="sub-title">OUR PROJECTS</span>
+                        <h2 class="title tg-element-title">Let’s Discover All Our Clients Recent Project</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="project-item-wrap">
+            <div class="container custom-container-two">
+                <div class="row">
+                    @foreach ($projects as $key => $prj)
+                        <div class="col-xl-3 col-md-6">
+                            <div class="project-item">
+                                <div class="project-thumb">
+                                    <a href="{{ route('projectsingle', $prj->slug) }}">
+                                        {!! get_image($prj->image, '', 'home-project') !!}
+                                    </a>
+                                </div>
+                                <div class="project-content">
+                                    <div class="left-side-content">
+                                        <h4 class="title"><a href="{{ route('projectsingle', $prj->slug) }}">{{ $prj->name ?? '' }}</a></h4>
+                                        {{-- <span>Business Strategy</span> --}}
+                                    </div>
+                                    <div class="link-arrow">
+                                        <a href="project-details">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 15" fill="none">
+                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                    d="M17.6293 3.27957C17.7117 2.80341 17.4427 2.34763 17.0096 2.17812C16.9477 2.15385 16.8824 2.13552 16.8144 2.12376L6.96081 0.419152C6.41654 0.325049 5.89911 0.689856 5.80491 1.23411C5.71079 1.77829 6.07564 2.29578 6.61982 2.38993L14.0946 3.68295L1.36574 12.6573C0.914365 12.9756 0.806424 13.5995 1.12467 14.0509C1.44292 14.5022 2.06682 14.6102 2.51819 14.2919L15.247 5.31753L13.954 12.7923C13.8598 13.3365 14.2247 13.854 14.7689 13.9482C15.3131 14.0422 15.8305 13.6774 15.9248 13.1332L17.6293 3.27957Z"
+                                                    fill="currentcolor" />
+                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                    d="M17.6293 3.27957C17.7117 2.80341 17.4427 2.34763 17.0096 2.17812C16.9477 2.15385 16.8824 2.13552 16.8144 2.12376L6.96081 0.419152C6.41654 0.325049 5.89911 0.689856 5.80491 1.23411C5.71079 1.77829 6.07564 2.29578 6.61982 2.38993L14.0946 3.68295L1.36574 12.6573C0.914365 12.9756 0.806424 13.5995 1.12467 14.0509C1.44292 14.5022 2.06682 14.6102 2.51819 14.2919L15.247 5.31753L13.954 12.7923C13.8598 13.3365 14.2247 13.854 14.7689 13.9482C15.3131 14.0422 15.8305 13.6774 15.9248 13.1332L17.6293 3.27957Z"
+                                                    fill="currentcolor" />
+                                            </svg>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-12">
+                        <div class="project-content-bottom">
+                            <p>
+                                We successfully cope with tasks of varying complexity, <br />
+                                provide long-term guarantees and regularly
+                            </p>
+                            <a href="project-details" class="btn">See All Projects</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="project-shape-wrap">
+            <img class="dark-opacity" src="{{ asset('frontend') }}/assets/img/project/project_shape01.png" alt="Apexa"
+                class="alltuchtopdown" />
+            <img src="{{ asset('frontend') }}/assets/img/project/project_shape02.png" alt="Apexa" class="rotateme" />
+        </div>
+    </section>
+
+    <!-- request-area-end -->
+    <!-- team-area -->
+    <section class="team-area pt-120 pb-90">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-xl-7 col-lg-6">
+                    <div class="section-title mb-40 tg-heading-subheading animation-style3">
+                        <span class="sub-title">{{ $setting['team_title'] ?? 'Our Team' }}</span>
+                        <h2 class="title tg-element-title">
+                            {!! $setting['team_description'] ?? 'Leading the Way in IT <br>
+                    Innovation' !!}
+                        </h2>
+                    </div>
+                </div>
+                <div class="col-xl-5 col-lg-6">
+                    <div class="section-content">
+                        <p>Our power of choice is untrammelled and when nothing preven tsbeing able to do what we
+                            like best every pleasure.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="team-item-wrap">
+                <div class="row justify-content-center">
+                    @foreach ($teams as $team)
+                        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-8">
+                            <div class="team-item">
+                                <div class="team-thumb">
+                                    {!! get_image($team->image, '', 'team') !!}
+                                    <div class="team-social">
+                                        <div class="social-toggle-icon">
+                                            <i class="fas fa-share-alt"></i>
+                                        </div>
+                                        <ul class="list-wrap">
+                                            <li>
+                                                <a href="javascript:void(0)"><i class="fab fa-facebook-f"></i></a>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:void(0)"><i class="fab fa-twitter"></i></a>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:void(0)"><i class="fab fa-instagram"></i></a>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:void(0)"><i class="fab fa-pinterest-p"></i></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="team-content">
+                                    <h4 class="title"><a href="team-details">{{ $team->name ?? '' }}</a></h4>
+                                    <span>@if ($team->position)
+                                        {{ $team->position ?? '' }}
+                                    @endif</span>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
                 </div>
             </div>
         </div>

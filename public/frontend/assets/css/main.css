@@ -630,7 +630,11 @@ textarea {
 .btn {
   user-select: none;
   -moz-user-select: none;
-  background: var(--tg-theme-secondary-500) none repeat scroll 0 0;
+  /* background: var(--tg-theme-secondary-500) none repeat scroll 0 0; */
+  background: linear-gradient(135deg,
+      var(--tg-theme-secondary-400),
+      var(--tg-theme-secondary-500),
+      var(--tg-theme-secondary-700));
   border: medium none;
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
@@ -711,7 +715,11 @@ textarea {
 }
 
 .btn-two {
-  background: var(--tg-theme-primary-500);
+  /* background: var(--tg-theme-primary-500); */
+  background: linear-gradient(135deg,
+      var(--tg-theme-secondary-400),
+      var(--tg-theme-secondary-500),
+      var(--tg-theme-secondary-700));
 }
 
 .btn-two:hover {
@@ -2257,6 +2265,10 @@ textarea {
 
 .tgmenu__action ul .header-btn .btn {
   color: var(--tg-color-white-default);
+  background: linear-gradient(135deg,
+      var(--tg-theme-secondary-400),
+      var(--tg-theme-secondary-500),
+      var(--tg-theme-secondary-700));
   font-size: 14px;
 }
 
@@ -2550,7 +2562,7 @@ textarea {
 }
 
 .sticky-menu .tgmenu__action ul .header-btn a {
-  color: var(--tg-color-white-default);
+  color: var(--tg-color-white-default) !important;
 }
 
 #header-fixed-height.active-height {
@@ -4675,7 +4687,8 @@ textarea {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--tg-color-yellow-light);
+  /* background: var(--tg-color-yellow-light); */
+  background: var(--tg-theme-primary-50);
   color: var(--tg-theme-secondary-500);
   -webkit-border-radius: 8px;
   -moz-border-radius: 8px;
@@ -7656,7 +7669,8 @@ textarea {
     08. Choose
 ===============================*/
 .choose-area {
-  background: var(--tg-theme-primary-600);
+  /* background: var(--tg-theme-primary-600); */
+  background: white;
   padding: 120px 0;
   position: relative;
   z-index: 1;
@@ -7747,7 +7761,7 @@ textarea {
 
 .choose-content>p {
   margin-bottom: 30px;
-  color: #ecf6fa;
+  color: var(--tg-heading-color);
   width: 85%;
 }
 
@@ -9554,6 +9568,7 @@ textarea {
 @media (max-width: 991.98px) {
   .project__details-info {
     padding: 25px 30px 30px;
+    margin-top: 16px;
   }
 }
 
@@ -10951,7 +10966,7 @@ textarea {
 }
 
 .testimonial__rating i:last-child {
-  color: #ded9ce;
+  /* color: #ded9ce; */
 }
 
 .testimonial__rating-two {
@@ -18242,4 +18257,9 @@ blockquote p {
 /* Optional: adjust active tab height */
 .nav-tabs .nav-link.active {
   padding: 0.25rem 0.75rem;
+}
+
+
+.text-justify {
+  text-align: justify !important;
 }

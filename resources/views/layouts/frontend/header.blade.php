@@ -155,7 +155,7 @@ $menus = getMenus(1);
                                             </svg>
                                         </a>
                                     </li>
-                                    <li class="header-btn"><a href="contact" class="btn">let’s Talk</a></li>
+                                    <li class="header-btn"><a href="contact-us" class="btn">let’s Talk</a></li>
                                 </ul>
                             </div>
                             <div class="mobile-nav-toggler">
@@ -217,21 +217,13 @@ $menus = getMenus(1);
                                 </div>
                                 <div class="social-links">
                                     <ul class="list-wrap">
-                                        <li>
-                                            <a href="javascript:void(0)"><i class="fab fa-facebook-f"></i></a>
-                                        </li>
-                                        <li>
-                                            <a href="javascript:void(0)"><i class="fab fa-twitter"></i></a>
-                                        </li>
-                                        <li>
-                                            <a href="javascript:void(0)"><i class="fab fa-instagram"></i></a>
-                                        </li>
-                                        <li>
-                                            <a href="javascript:void(0)"><i class="fab fa-linkedin-in"></i></a>
-                                        </li>
-                                        <li>
-                                            <a href="javascript:void(0)"><i class="fab fa-youtube"></i></a>
-                                        </li>
+                                        @if ($socialdata->isNotEmpty())
+                                            @foreach ($socialdata as $data)
+                                                <li>
+                                                    <a href="{{ $data->link ?? '' }}"><i class="{{ $data->icon ?? '' }}"></i></a>
+                                                </li>
+                                            @endforeach
+                                        @endif
                                     </ul>
                                 </div>
                             </div>
@@ -315,10 +307,11 @@ $menus = getMenus(1);
             </div>
         </div>
         <div class="offCanvas__social-icon mt-30">
-            <a href="javascript:void(0)"><i class="fab fa-facebook-f"></i></a>
-            <a href="javascript:void(0)"><i class="fab fa-twitter"></i></a>
-            <a href="javascript:void(0)"><i class="fab fa-google-plus-g"></i></a>
-            <a href="javascript:void(0)"><i class="fab fa-instagram"></i></a>
+            @if ($socialdata->isNotEmpty())
+                @foreach ($socialdata as $data)
+                    <a href="{{ $data->link ?? '' }}"><i class="{{ $data->icon ?? '' }}"></i></a>
+                @endforeach
+            @endif
         </div>
     </div>
     <div class="offCanvas__overly"></div>

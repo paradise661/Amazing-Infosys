@@ -168,14 +168,14 @@ if (!function_exists('image_sizes')) {
             'sidebar' => ['width' => 80, 'height' => 80],
             'review' => ['width' => 70, 'height' => 70],
         ];
-        return  $size;
+        return $size;
     }
 }
 if (!function_exists('get_image_size')) {
     function get_image_size($size)
     {
         if ($size) {
-            $sizes  = image_sizes();
+            $sizes = image_sizes();
             if (array_key_exists($size, $sizes)) {
                 return '-' . $sizes[$size]['width'] . 'x' . $sizes[$size]['height'];
             } else {
@@ -250,7 +250,7 @@ if (!function_exists('get_gallery')) {
         if ($value) {
             $value = explode(',', $value);
             foreach ($value as $new) {
-                $gallery[]  = get_media($new);
+                $gallery[] = get_media($new);
             }
             return $gallery;
         } else {
@@ -267,7 +267,7 @@ if (!function_exists('get_show_gallery')) {
         if ($value) {
             $value = explode(',', $value);
             foreach ($value as $new) {
-                $gallery[]  = $new;
+                $gallery[] = $new;
             }
             return $gallery;
         } else {
