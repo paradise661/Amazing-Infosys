@@ -28,6 +28,8 @@ Route::get('/activities/{slug}', [FrontendController::class, 'activitiessingle']
 Route::get('/services/{slug}', [FrontendController::class, 'servicesingle'])->name('servicesingle');
 Route::get('/projects/{slug}', [FrontendController::class, 'projectsingle'])->name('projectsingle');
 
+// Route::get('payment-gateway', [FrontendController::class, 'payment'])->name('payment');
+
 
 Route::post('/inquiry', [ContactsController::class, 'inquiry'])->name('inquiry');
 // Route::post('/pkbooking', [PackageInquiryController::class, 'pkbooking'])->name('pkbooking');

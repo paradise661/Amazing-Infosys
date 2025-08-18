@@ -18263,3 +18263,62 @@ blockquote p {
 .text-justify {
   text-align: justify !important;
 }
+
+.fonepay {
+  box-shadow: 0 4px 20px rgba(42, 67, 113, 0.1);
+  border-radius: 20px;
+  overflow: hidden;
+  padding: 20px;
+  background: #fff;
+  text-align: center;
+}
+
+.bank-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  margin-top: 1.5rem;
+  padding: 20px;
+  background: #fff;
+  box-shadow: 0 4px 20px rgba(42, 67, 113, 0.1);
+  border-radius: 20px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.bank-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 24px rgba(42, 67, 113, 0.15);
+}
+
+.bank-card img {
+  width: 70px;
+  height: auto;
+  object-fit: contain;
+}
+
+.bank-card-detail {
+  flex: 1;
+}
+
+.bank-card-detail h2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #191d88;
+}
+
+.bank-card-detail ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.bank-card-detail li {
+  margin-bottom: 6px;
+  font-size: 0.95rem;
+  color: #444;
+}
+
+.bank-card-detail strong {
+  color: #000;
+}

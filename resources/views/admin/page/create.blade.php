@@ -20,8 +20,8 @@
                         <div class="card card-body main-description shadow br-8 p-4">
                             <div class="form-group mb-3">
                                 <label for="name">Name</label>
-                                <input class="form-control br-8 @error('name') is-invalid @enderror" type="text"
-                                    name="name" value="{{ old('name') }}" placeholder="Enter Name">
+                                <input class="form-control br-8 @error('name') is-invalid @enderror" type="text" name="name"
+                                    value="{{ old('name') }}" placeholder="Enter Name">
                                 @error('name')
                                     <div class="invalid-feedback" style="display: block;">
                                         {{ $message }}
@@ -30,8 +30,9 @@
                             </div>
                             <div class="form-group mb-3">
                                 <label for="description">Description</label>
-                                <textarea class="form-control ckeditor br-8 @error('description') is-invalid @enderror" id="description"
-                                    name="description" rows="10" placeholder="Enter Description">{{ old('description') }}</textarea>
+                                <textarea class="form-control ckeditor br-8 @error('description') is-invalid @enderror"
+                                    id="description" name="description" rows="10"
+                                    placeholder="Enter Description">{{ old('description') }}</textarea>
                                 @error('description')
                                     <div class="invalid-feedback" style="display: block;">
                                         {{ $message }}
@@ -49,7 +50,8 @@
                                 </div>
                                 <div class="form-group mb-3">
                                     <label for="seo_description">Seo Description</label>
-                                    <textarea class="form-control br-8" name="seo_description" rows="4" placeholder="Enter Seo Description">{{ old('seo_description') }}</textarea>
+                                    <textarea class="form-control br-8" name="seo_description" rows="4"
+                                        placeholder="Enter Seo Description">{{ old('seo_description') }}</textarea>
                                 </div>
                                 <div class="form-group mb-3">
                                     <label for="seo_keywords">Seo Keywords</label>
@@ -58,7 +60,8 @@
                                 </div>
                                 <div class="form-group mb-3">
                                     <label for="seo_schema">Seo Schema</label>
-                                    <textarea class="form-control br-8" name="seo_schema" rows="10" placeholder="Enter Seo Schema">{{ old('seo_schema') }}</textarea>
+                                    <textarea class="form-control br-8" name="seo_schema" rows="10"
+                                        placeholder="Enter Seo Schema">{{ old('seo_schema') }}</textarea>
                                 </div>
                             </fieldset>
                         </div>
@@ -93,6 +96,7 @@
                                     <option class="p-3" value="12">Projects</option>
                                     <option class="p-3" value="14">Code</option>
                                     <option class="p-3" value="13">Sitemap</option>
+                                    <option class="p-3" value="14">Payment Gateway</option>
                                 </select>
                             </div>
 
@@ -108,15 +112,13 @@
                                             <div
                                                 class="thumbnails media-wrapper d-flex justify-content-center align-items-center">
                                                 <img class="custom-width" id="banner_img"
-                                                    src="{{ asset('admin/assets/images/upload.png') }}"
-                                                    alt="upload-image">
+                                                    src="{{ asset('admin/assets/images/upload.png') }}" alt="upload-image">
                                             </div>
                                         </div>
                                     </a>
-                                    <a class="btn btn-sm btn-danger d-none" id="banner_remove"
-                                        href="javascript:void(0)"><i class="fa fa-trash"></i> Delete</a>
-                                    <input class="" id="banner_id" type="hidden" name="banner"
-                                        value="{{ old('banner') }}">
+                                    <a class="btn btn-sm btn-danger d-none" id="banner_remove" href="javascript:void(0)"><i
+                                            class="fa fa-trash"></i> Delete</a>
+                                    <input class="" id="banner_id" type="hidden" name="banner" value="{{ old('banner') }}">
                                 </div>
                             </div>
 
@@ -132,15 +134,13 @@
                                             <div
                                                 class="thumbnails media-wrapper d-flex justify-content-center align-items-center">
                                                 <img class="custom-width" id="feature_img"
-                                                    src="{{ asset('admin/assets/images/upload.png') }}"
-                                                    alt="upload-image">
+                                                    src="{{ asset('admin/assets/images/upload.png') }}" alt="upload-image">
                                             </div>
                                         </div>
                                     </a>
-                                    <a class="btn btn-sm btn-danger d-none" id="feature_remove"
-                                        href="javascript:void(0)"><i class="fa fa-trash"></i> Delete</a>
-                                    <input class="" id="feature_id" type="hidden" name="image"
-                                        value="{{ old('image') }}">
+                                    <a class="btn btn-sm btn-danger d-none" id="feature_remove" href="javascript:void(0)"><i
+                                            class="fa fa-trash"></i> Delete</a>
+                                    <input class="" id="feature_id" type="hidden" name="image" value="{{ old('image') }}">
                                 </div>
                             </div>
 

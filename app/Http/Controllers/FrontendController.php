@@ -30,15 +30,16 @@ class FrontendController extends Controller
         $whowe = Page::whereId(7)->where('status', 1)->first();
         $revs = Review::where('status', 1)->limit(5)->get();
         $request = Page::where('status', 1)->where('slug', 'request-area')->first();
-        $consult = Page::where('status',1)->where('slug','consulting-area')->first();
+        $consult = Page::where('status', 1)->where('slug', 'consulting-area')->first();
 
-        return view('frontend.home.index', compact(['sliders', 'partners', 'blogs', 'teams', 'counters', 'services', 'projects', 'whowe', 'revs', 'request','consult']));
+        return view('frontend.home.index', compact(['sliders', 'partners', 'blogs', 'teams', 'counters', 'services', 'projects', 'whowe', 'revs', 'request', 'consult']));
     }
 
     public function pagesingle($slug)
     {
         $content = Page::where('slug', $slug)->where('status', 1)->first();
         if ($content) {
+
             if ($content->template == 1) {
 
                 return view('frontend.page.side', compact('content'));
@@ -99,7 +100,7 @@ class FrontendController extends Controller
                 return view('frontend.page.project', compact(['content', 'projects', 'category']));
             } elseif ($content->template == 14) {
 
-                return view('frontend.page.project', compact(['content']));
+                return view('frontend.page.payment', compact(['content']));
             } elseif ($content->template == 13) {
 
                 $all_blogs = News::get();
@@ -168,4 +169,6 @@ class FrontendController extends Controller
             return view('errors.404');
         }
     }
+
+
 }
