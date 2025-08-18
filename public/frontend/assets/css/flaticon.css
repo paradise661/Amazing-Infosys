@@ -1,10 +1,16 @@
 @font-face {
   font-family: "flaticon";
   font-family: "flaticon";
-  src: url("../fonts/flaticon.eot");
-  src: url("../fonts/flaticond41d.eot?#iefix") format("embedded-opentype"), url("../fonts/flaticon.woff2") format("woff2"), url("../fonts/flaticon.woff") format("woff"), url("../fonts/flaticon.ttf") format("truetype"), url("../fonts/flaticon.svg#Flaticon") format("svg");
+  src: url("/frontend/assets/fonts/flaticon.eot");
+  src: url("/frontend/assets/fonts/flaticond41d.eot?#iefix") format("embedded-opentype"),
+    url("/frontend/assets/fonts/flaticon.woff2") format("woff2"),
+    url("/frontend/assets/fonts/flaticon.woff") format("woff"),
+    url("/frontend/assets/fonts/flaticon.ttf") format("truetype"),
+    url("/frontend/assets/fonts/flaticon.svg#Flaticon") format("svg");
 }
-i[class^=flaticon-]:before, i[class*=" flaticon-"]:before {
+
+i[class^=flaticon-]:before,
+i[class*=" flaticon-"]:before {
   font-family: flaticon !important;
   font-style: normal;
   font-weight: normal !important;
@@ -193,4 +199,6 @@ i[class^=flaticon-]:before, i[class*=" flaticon-"]:before {
 
 .flaticon-suitcase:before {
   content: "\f12d";
-}/*# sourceMappingURL=flaticon.css.map */
+}
+
+/*# sourceMappingURL=flaticon.css.map */
