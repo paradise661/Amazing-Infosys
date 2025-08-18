@@ -1437,7 +1437,7 @@ textarea {
   font-size: 15px;
   font-weight: 600;
   line-height: normal;
-  color: var(--tg-theme-secondary-500);
+  color: red;
   margin-bottom: 12px;
 }
 
@@ -1498,7 +1498,10 @@ textarea {
 }
 
 .tg-header__top {
-  background: #0e104b;
+  background: linear-gradient(135deg,
+  var(--tg-theme-secondary-400),
+  var(--tg-theme-secondary-500),
+  var(--tg-theme-secondary-700));;
   padding: 12px 0;
 }
 
@@ -3173,7 +3176,7 @@ textarea {
   letter-spacing: 0.75px;
   display: block;
   line-height: 1;
-  color: var(--tg-theme-secondary-500);
+  color: red !important;
   margin-bottom: 15px;
 }
 
@@ -3203,7 +3206,7 @@ textarea {
 }
 
 .banner-content p {
-  margin-bottom: 30px;
+  /* margin-bottom: 30px; */
   color: var(--tg-bg-dark-blue);
   text-transform: capitalize;
   width: 90%;
@@ -8910,7 +8913,7 @@ textarea {
   top: 0;
   width: 100%;
   height: 0;
-  background: #af7400;
+  background: #af3700;
   opacity: 0.6;
   pointer-events: none;
   -webkit-transition: all 0.3s ease-out 0s;
@@ -12663,7 +12666,10 @@ textarea {
     18. Call-back
 ===============================*/
 .call-back-area {
-  background: #14176c;
+  background: linear-gradient(135deg,
+  var(--tg-theme-secondary-400),
+  var(--tg-theme-secondary-500),
+  var(--tg-theme-secondary-700));;
   padding: 100px 0 85px;
   position: relative;
   z-index: 1;

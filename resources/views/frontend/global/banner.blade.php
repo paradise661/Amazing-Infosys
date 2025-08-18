@@ -23,7 +23,6 @@
         </div>
     </div>
 </section> --}}
-
 <section class="breadcrumb__area pb-110 p-relative breadcrumb__bg">
     <div class="bg-img position-absolute top-0 start-0 w-100 h-100"
         data-background="{{ asset('frontend') }}/assets/img/bg/breadcrumb_bg.jpg">

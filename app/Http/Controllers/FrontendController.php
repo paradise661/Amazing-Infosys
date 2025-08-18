@@ -28,6 +28,7 @@ class FrontendController extends Controller
         $projects = Project::where('status', 1)->oldest('order')->limit(4)->get();
         $projects = Project::where('status', 1)->oldest('order')->limit(4)->get();
         $whowe = Page::whereId(7)->where('status', 1)->first();
+        
         $revs = Review::where('status', 1)->limit(5)->get();
         $request = Page::where('status', 1)->where('slug', 'request-area')->first();
         $consult = Page::where('status', 1)->where('slug', 'consulting-area')->first();
