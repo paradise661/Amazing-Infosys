@@ -687,7 +687,7 @@
                                                                                                                                         <i class="fas fa-star"></i>
                                                                                                                                     </div>
                                                                                                                                     <div class="testimonial-content">
-                                                                                                                                        <p>“{!! $rev->description ?? '' !!}”</p>
+                                                                                                                                        <p>{!! $rev->description ?? '' !!}</p>
                                                                                                                                         <div class="icon"><i class="fas fa-quote-right"></i></div>
                                                                                                                                     </div>
                                                                                                                                 </div>

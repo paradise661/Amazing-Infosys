@@ -666,8 +666,8 @@ textarea {
 }
 
 .project-nav-link.active {
-  background: var(--tg-theme-primary-400);
-  color: whitesmoke !important;
+  background: var(--tg-theme-primary-600);
+  color: white !important;
   border-color: white;
   border: none;
   border-radius: 6px;
