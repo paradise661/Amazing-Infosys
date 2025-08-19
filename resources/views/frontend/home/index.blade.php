@@ -665,7 +665,7 @@ $icons = [0 => 'flaticon-trophy', 1 => 'flaticon-happy', 2 => 'flaticon-user'];
                                         </div>
                                         <p>Looking for the Best IT <br> Business Solutions?</p>
                                         <div class="shape">
-                                            <img class="dark-opacity" src="assets/img/images/call_back_shape.png" alt="Apexa"
+                                            <img class="dark-opacity" src="{{ asset('frontend') }}/assets/img/images/call_back_shape.png" alt="Apexa"
                                                 data-aos="fade-right" data-aos-delay="400" />
                                         </div>
                                     </div>
