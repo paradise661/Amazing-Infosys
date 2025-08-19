@@ -1499,9 +1499,10 @@ textarea {
 
 .tg-header__top {
   background: linear-gradient(135deg,
-  var(--tg-theme-secondary-400),
-  var(--tg-theme-secondary-500),
-  var(--tg-theme-secondary-700));;
+      var(--tg-theme-secondary-400),
+      var(--tg-theme-secondary-500),
+      var(--tg-theme-secondary-700));
+  ;
   padding: 12px 0;
 }
 
@@ -12667,9 +12668,10 @@ textarea {
 ===============================*/
 .call-back-area {
   background: linear-gradient(135deg,
-  var(--tg-theme-secondary-400),
-  var(--tg-theme-secondary-500),
-  var(--tg-theme-secondary-700));;
+      var(--tg-theme-secondary-400),
+      var(--tg-theme-secondary-500),
+      var(--tg-theme-secondary-700));
+  ;
   padding: 100px 0 85px;
   position: relative;
   z-index: 1;
@@ -18327,4 +18329,12 @@ blockquote p {
 
 .bank-card-detail strong {
   color: #000;
+}
+
+.faq-answer p {
+  color: white !important;
+}
+
+.faq-answer p span {
+  color: white !important;
 }

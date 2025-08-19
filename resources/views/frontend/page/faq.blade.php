@@ -21,7 +21,7 @@
         'parentlink' => '',
     ])
     @if ($faqs->isNotEmpty())
-        <section class="home-faq mt-48 mb-72">
+        <section class="home-faq mt-4 mb-72">
             <div class="container">
                 <div class="accordion mt-24" id="accordionExample">
                     @foreach ($faqs as $key => $fq)
@@ -37,7 +37,7 @@
                                 id="collapse{{ $key }}" data-bs-parent="#accordionExample"
                                 aria-labelledby="heading{{ $key }}">
                                 <div class="accordion-body">
-                                    <div class="small">{!! $fq->answer ?? '' !!}</div>
+                                    <div class="small faq-answer">{!! $fq->answer ?? '' !!}</div>
                                 </div>
                             </div>
                         </div>

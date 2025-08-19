@@ -107,7 +107,7 @@
             <div class="testimonial-shape-wrap">
                 <img src="{{ asset('frontend') }}/assets/img/images/testimonial_shape05.png" alt="Apexa" data-aos="fade-up"
                     data-aos-delay="400" />
-                <img class="dark-opacity" src="assets/img/images/testimonial_shape06.png" alt="Apexa"
+                <img class="dark-opacity" src="{{ 'frontend' }}/assets/img/images/testimonial_shape06.png" alt="Apexa"
                     data-aos="fade-left" data-aos-delay="400" />
             </div>
         </section>
