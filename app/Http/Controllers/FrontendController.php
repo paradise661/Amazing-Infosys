@@ -28,12 +28,13 @@ class FrontendController extends Controller
         $projects = Project::where('status', 1)->oldest('order')->limit(4)->get();
         $projects = Project::where('status', 1)->oldest('order')->limit(4)->get();
         $whowe = Page::whereId(7)->where('status', 1)->first();
-        
+
         $revs = Review::where('status', 1)->limit(5)->get();
         $request = Page::where('status', 1)->where('slug', 'request-area')->first();
         $consult = Page::where('status', 1)->where('slug', 'consulting-area')->first();
+        $whychoose = Page::where('status', 1)->where('slug', 'why-choose')->first();
 
-        return view('frontend.home.index', compact(['sliders', 'partners', 'blogs', 'teams', 'counters', 'services', 'projects', 'whowe', 'revs', 'request', 'consult']));
+        return view('frontend.home.index', compact(['sliders', 'partners', 'blogs', 'teams', 'counters', 'services', 'projects', 'whowe', 'revs', 'request', 'consult', 'whychoose']));
     }
 
     public function pagesingle($slug)

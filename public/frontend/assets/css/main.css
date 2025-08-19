@@ -8613,7 +8613,7 @@ textarea {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--tg-color-yellow-light);
+  background: var(--tg-theme-primary-100);
   border-radius: 50%;
   font-size: 40px;
   color: var(--tg-theme-secondary-500);
