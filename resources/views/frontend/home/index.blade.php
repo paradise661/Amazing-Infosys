@@ -12,6 +12,11 @@
     'updated_at' => '2018-02-26T10:54:05+00:00',
 ])
 @endsection
+@php
+    $imgTag = get_image($request->image, '', 'home-project'); // returns <img ...>
+    preg_match('/src="([^"]+)"/', $imgTag, $matches);
+    $requestsrc = $matches[1] ?? null;
+@endphp
 
 @section('content')
                 <main class="fix">
@@ -294,7 +299,7 @@
                         <div class="container">
                             <div class="row justify-content-center">
                                 @php
-    $icons = [0 => 'flaticon-trophy', 1 => 'flaticon-happy', 2 => 'flaticon-user'];
+$icons = [0 => 'flaticon-trophy', 1 => 'flaticon-happy', 2 => 'flaticon-user'];
                                 @endphp
                                 @foreach ($counters as $key => $count)
                                     <div class="col-xl-3 col-lg-4 col-sm-6">
@@ -394,7 +399,7 @@
                     </section>
                     <!-- project-area-end -->
                     <!-- request-area -->
-                    <section class="request-area request-bg" data-background="{{ get_image($request->image, '', 'home-project') }}">
+                    <section class="request-area request-bg" data-background="{{ $requestsrc }}">
                         <div class="container">
                             <div class="row justify-content-center">
                                 <div class="col-lg-8">
@@ -435,7 +440,7 @@
                                         <span class="sub-title">{{ $setting['team_title'] ?? 'Our Team' }}</span>
                                         <h2 class="title tg-element-title">
                                             {!! $setting['team_description'] ??
-        'Leading the Way in IT <br>
+    'Leading the Way in IT <br>
                                                                                                             Innovation' !!}
                                         </h2>
                                     </div>
