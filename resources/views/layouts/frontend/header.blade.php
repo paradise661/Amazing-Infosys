@@ -1,5 +1,5 @@
 <header class="transparent-header">
-    <div class="tg-header__top">
+    {{-- <div class="tg-header__top">
         <div class="container custom-container">
             <div class="row">
                 <div class="col-lg-6">
@@ -19,7 +19,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
     <div id="sticky-header" class="tg-header__area">
         <div class="container custom-container">
             <div class="row">

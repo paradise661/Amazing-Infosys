@@ -212,7 +212,7 @@
             <nav>
                 <div class="nav nav-tabs justify-content-center" id="nav-tab" role="tablist">
                     @foreach ($category as $catName => $projects)
-                        <button class="nav-link{{ $loop->first ? ' active' : '' }}"
+                        <button class="project-nav-link project-btn {{ $loop->first ? ' active' : '' }}"
                             id="nav-cats{{ Str::slug($catName) }}-tab"
                             data-bs-toggle="tab"
                             data-bs-target="#nav-cats{{ Str::slug($catName) }}"

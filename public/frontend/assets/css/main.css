@@ -627,6 +627,53 @@ textarea {
   display: flex;
 }
 
+.btn-project {
+  background: linear-gradient(135deg,
+      var(--tg-theme-secondary-400),
+      var(--tg-theme-secondary-500),
+      var(--tg-theme-secondary-700));
+  color: whitesmoke !important;
+}
+
+.btn-project:hover {
+  background: var(--tg-theme-primary-500);
+}
+
+.btn-project-active {
+  background: var(--tg-theme-primary-500);
+}
+
+.project-nav-link {
+  color: white !important;
+  background: linear-gradient(135deg,
+      var(--tg-theme-secondary-400),
+      var(--tg-theme-secondary-500),
+      var(--tg-theme-secondary-700));
+  border-color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 10px;
+}
+
+.desc {
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  line-clamp: 5;
+  /* show max 5 lines */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.project-nav-link.active {
+  background: var(--tg-theme-primary-400);
+  color: whitesmoke !important;
+  border-color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 10px;
+}
+
 .btn {
   user-select: none;
   -moz-user-select: none;
@@ -665,6 +712,7 @@ textarea {
   overflow: hidden;
   z-index: 1;
 }
+
 
 .btn::before {
   content: "";
