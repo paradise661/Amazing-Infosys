@@ -6297,7 +6297,7 @@ textarea {
 }
 
 .services__icon-shape .shape:nth-child(1) svg {
-  color: var(--tg-color-yellow-light);
+  color: var(--tg-theme-primary-200);
 }
 
 .services__icon-shape .shape:nth-child(2) {
@@ -14739,8 +14739,9 @@ blockquote p {
 .footer-info-two .list-wrap li .content p:hover {
   color: white !important;
 }
-.footer-widget .list-wrap li a:hover{
-    color: white !important;
+
+.footer-widget .list-wrap li a:hover {
+  color: white !important;
 }
 
 @media (max-width: 991.98px) {
