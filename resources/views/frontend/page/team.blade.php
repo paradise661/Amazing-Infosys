@@ -77,7 +77,7 @@
                                             </div>
                                         </div>
                                         <div class="team-content">
-                                            <h4 class="title"><a href="team-details">{{ $team->name ?? '' }}</a></h4>
+                                            <h4 class="title">">{{ $team->name ?? '' }}</h4>
                                             <span>@if ($team->position)
                                             {{ $team->position ?? '' }}
                                             @endif</span>

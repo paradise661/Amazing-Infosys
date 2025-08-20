@@ -52,7 +52,7 @@
             </div>
         </section> --}}
 
-         <section class="testimonial-area">
+         <section class="new-testimonial-area">
             <div class="container">
                 <div class="row align-items-center justify-content-center">
                     <div class="col-lg-6 order-0 order-lg-2">
@@ -74,7 +74,7 @@
                                             <i class="fas fa-star"></i>
                                         </div>
                                         <div class="testimonial-content">
-                                            <p>“{!! $rev->description ?? '' !!}”</p>
+                                            <p>{!! $rev->description ?? '' !!}</p>
                                             <div class="icon"><i class="fas fa-quote-right"></i></div>
                                         </div>
                                     </div>

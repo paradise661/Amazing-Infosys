@@ -10631,6 +10631,15 @@ textarea {
   overflow: hidden;
 }
 
+.new-testimonial-area {
+  background-color: var(--tg-color-yellow-light-2);
+  padding: 250px 0 0;
+  position: static !important;
+  z-index: 1;
+  margin-top: -130px;
+  overflow: hidden;
+}
+
 @media (max-width: 767.98px) {
   .testimonial-area {
     padding: 230px 0 0;
