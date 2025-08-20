@@ -1,5 +1,5 @@
 <footer>
-    <div class="footer-area">
+    {{-- <div class="footer-area">
         <div class="footer-top">
             <div class="container">
                 <div class="row">
@@ -15,12 +15,12 @@
                                 <div class="footer-social">
                                     <ul class="list-wrap">
                                         @if ($socialdata->isNotEmpty())
-                                            @foreach ($socialdata as $data)
-                                                <li>
-                                                    <a href="{{ $data->link ?? '' }}"><i
-                                                            class="{{ $data->icon ?? '' }}"></i></a>
-                                                </li>
-                                            @endforeach
+                                        @foreach ($socialdata as $data)
+                                        <li>
+                                            <a href="{{ $data->link ?? '' }}"><i
+                                                    class="{{ $data->icon ?? '' }}"></i></a>
+                                        </li>
+                                        @endforeach
                                         @endif
                                     </ul>
                                 </div>
@@ -37,8 +37,8 @@
                                             <i class="flaticon-phone-call"></i>
                                         </div>
                                         <div class="content">
-                                            <a
-                                                href="tel:{{ $setting['site_phone'] ?? '' }}">{{ $setting['site_phone'] ?? '' }}</a>
+                                            <a href="tel:{{ $setting['site_phone'] ?? '' }}">{{ $setting['site_phone']
+                                                ?? '' }}</a>
                                         </div>
                                     </li>
                                     <li>
@@ -46,8 +46,8 @@
                                             <i class="flaticon-envelope"></i>
                                         </div>
                                         <div class="content">
-                                            <a
-                                                href="mailto:{{ $setting['site_email'] ?? '' }}">{{ $setting['site_email'] ?? '' }}</a>
+                                            <a href="mailto:{{ $setting['site_email'] ?? '' }}">{{
+                                                $setting['site_email'] ?? '' }}</a>
                                         </div>
                                     </li>
                                     <li>
@@ -67,15 +67,15 @@
                             <h4 class="fw-title">Top Links</h4>
                             <div class="footer-link-list">
                                 @php
-                                    $menus = getMenus(4);
+                                $menus = getMenus(4);
                                 @endphp
                                 @if ($menus)
-                                    <ul class="list-wrap">
-                                        @foreach ($menus as $key => $value)
-                                            <li><a href="{{ $value->slug }}" target="{{ $value->target ?? '_self' }}">
-                                                    {{ $value->name ?? $value->title }}</a></li>
-                                        @endforeach
-                                    </ul>
+                                <ul class="list-wrap">
+                                    @foreach ($menus as $key => $value)
+                                    <li><a href="{{ $value->slug }}" target="{{ $value->target ?? '_self' }}">
+                                            {{ $value->name ?? $value->title }}</a></li>
+                                    @endforeach
+                                </ul>
                                 @endif
                             </div>
                         </div>
@@ -146,6 +146,152 @@
                 data-aos="fade-left" data-aos-delay="400" />
             <img src="{{ asset('frontend') }}/assets/img/images/footer_shape03.png" alt="Apexa"
                 data-parallax='{"x" : 100 , "y" : -100 }' />
+        </div>
+    </div> --}}
+
+    <div class="footer__area-two">
+        {{-- <div class="footer__newsletter-two">
+            <div class="container">
+                <div class="footer__newsletter-inner">
+                    <h2 class="title">Subscribe Newsletter For Latest Updates</h2>
+                    <form action="#">
+                        <input type="text" placeholder="e-mail Type . . ." />
+                        <button type="submit" class="btn">Subscribe</button>
+                    </form>
+                    <div class="footer__social-two">
+                        <ul class="list-wrap">
+                            <li>
+                                <a href="javascript:void(0)"><i class="fab fa-facebook-f"></i></a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)"><i class="fab fa-twitter"></i></a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)"><i class="fab fa-instagram"></i></a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)"><i class="fab fa-pinterest-p"></i></a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)"><i class="fab fa-youtube"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div> --}}
+        <div class="footer__top-two">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-4 col-lg-5 col-md-6">
+                        <div class="footer-widget">
+                            <div class="footer__content-two">
+                                <div class="fw-logo mb-25">
+                                    <a href="index.html"><img
+                                            src="{{ $setting['site_footer_logo'] ? asset(get_media($setting['site_footer_logo'])->fullurl) : '' }}"
+                                            alt="{{ $setting['site_footer_logo'] ? get_media($setting['site_footer_logo'])->alt : 'Amazing Infosys' }}"></a>
+                                </div>
+                                <p>{{ $setting['site_information'] ?? '' }}</p>
+                                <div class="footer-info-list footer-info-two">
+                                    <ul class="list-wrap">
+                                        <li>
+                                            <div class="icon">
+                                                <i class="flaticon-phone-call"></i>
+                                            </div>
+                                            <div class="content">
+                                                <a
+                                                    href="tel:{{ $setting['site_phone'] ?? '' }}">{{ $setting['site_phone'] ?? '' }}</a>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="icon">
+                                                <i class="flaticon-envelope"></i>
+                                            </div>
+                                            <div class="content">
+                                                <a
+                                                    href="mailto:{{ $setting['site_email'] ?? '' }}">{{ $setting['site_email'] ?? '' }}</a>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="icon">
+                                                <i class="flaticon-pin"></i>
+                                            </div>
+                                            <div class="content">
+                                                <p>{{ $setting['site_location'] ?? '' }}</p>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-2 col-lg-3 col-sm-6">
+                        <div class="footer-widget">
+                            <h4 class="fw-title">Information</h4>
+                            <div class="footer-link-list">
+                                @php
+                                    $menus = getMenus(1);
+                                @endphp
+                                @if ($menus)
+                                    <ul class="list-wrap">
+                                        @foreach ($menus as $key => $value)
+                                            <li><a href="{{ $value->slug }}" target="{{ $value->target ?? '_self' }}">
+                                                    {{ $value->name ?? $value->title }}</a></li>
+                                        @endforeach
+                                    </ul>
+                                @endif
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-4 col-sm-6">
+                        <div class="footer-widget">
+                            <h4 class="fw-title">Top Links</h4>
+                            <div class="footer-link-list">
+                                @php
+                                    $menus = getMenus(2);
+                                @endphp
+                                @if ($menus)
+                                    <ul class="list-wrap">
+                                        @foreach ($menus as $key => $value)
+                                            <li><a href="{{ $value->slug }}" target="{{ $value->target ?? '_self' }}">
+                                                    {{ $value->name ?? $value->title }}</a></li>
+                                        @endforeach
+                                    </ul>
+                                @endif
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-4 col-md-6">
+                        <div class="footer-widget">
+                            <h4 class="fw-title">Our Services</h4>
+                            <div class="footer-link-list">
+                                @php
+                                    $menus = getMenus(3);
+                                @endphp
+                                @if ($menus)
+                                    <ul class="list-wrap">
+                                        @foreach ($menus as $key => $value)
+                                            <li><a href="{{ $value->slug }}" target="{{ $value->target ?? '_self' }}">
+                                                    {{ $value->name ?? $value->title }}</a></li>
+                                        @endforeach
+                                    </ul>
+                                @endif
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer__bottom-two">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="copyright-text-two">
+                            <p>Copyright © <a href="/">{{ $setting['homepage_title'] }}</a> | All Right Reserved</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </footer>
