@@ -10623,7 +10623,7 @@ textarea {
     13. Testimonial
 ===============================*/
 .testimonial-area {
-  background-color: var(--tg-color-yellow-light-2);
+  /* background-color: var(--tg-color-yellow-light-2); */
   padding: 250px 0 0;
   position: relative;
   z-index: 1;
@@ -10638,6 +10638,150 @@ textarea {
   z-index: 1;
   margin-top: -130px;
   overflow: hidden;
+}
+
+.video-container {
+  max-width: 600px;
+  margin: 20px auto;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+
+.custom-video {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 16px;
+  background: #000;
+}
+
+/* new video ui*/
+.video-wrapper {
+  position: relative;
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.custom-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+/* Custom buttons */
+.control-btn {
+  position: absolute;
+  bottom: 15px;
+  left: 15px;
+  background: rgba(0, 0, 0, 0.6);
+  border: none;
+  color: #fff;
+  font-size: 20px;
+  padding: 8px 12px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.control-btn.right {
+  left: auto;
+  right: 15px;
+}
+
+.control-btn:hover {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.control-btn i {
+  font-size: 20px;
+  line-height: 1;
+}
+
+/* Hover effect */
+.video-container:hover {
+  transform: scale(1.02);
+  transition: 0.3s ease;
+}
+
+.video-card {
+  position: relative;
+  border-radius: 6px 6px 0px 0px;
+  overflow: hidden;
+  background: #000;
+  /* aspect-ratio: 16/9; */
+  /* keeps size nice in grid */
+}
+
+.video-el {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+/* Center play */
+.big-play {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 64px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, .55);
+  color: #fff;
+  border: 0;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: opacity .2s ease, transform .2s ease;
+}
+
+.big-play.hide {
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(.9);
+}
+
+/* Bottom controls */
+.controls {
+  position: absolute;
+  left: 8px;
+  right: 8px;
+  bottom: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 8px;
+  background: linear-gradient(to top, rgba(0, 0, 0, .55), rgba(0, 0, 0, 0));
+  border-radius: 10px;
+}
+
+.controls button {
+  border-radius: 50%;
+  background: var(--tg-theme-secondary-600);
+  color: white;
+  border-color: var(--tg-theme-secondary-600);
+  border: none;
+}
+
+
+/* Remove native controls completely */
+.video-el::-webkit-media-controls {
+  display: none !important;
+}
+
+.video-el::-moz-media-controls {
+  display: none !important;
 }
 
 @media (max-width: 767.98px) {
@@ -12911,7 +13055,7 @@ textarea {
 
 .blog__post-area-five {
   padding: 120px 0 90px;
-  background: var(--tg-color-yellow-light-2);
+  background: var(--tg-theme-primary-50);
   position: relative;
   z-index: 1;
 }

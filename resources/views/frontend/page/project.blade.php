@@ -234,12 +234,56 @@
                         aria-labelledby="nav-cats{{ Str::slug($catName) }}-tab"
                         tabindex="0">
                         <div class="row pt-45">
-                            @forelse($projects as $prj)
+                            @forelse($projects as $key => $prj)
                                 <div class="col-lg-3 col-md-6 mb-4">
                                     <div class="card shadow-sm rounded-2 h-100">
+                                        @if($catName == 'Reels')
+                                                                                                 {{-- <video class="reel-video" preload="none" loop muted>
+                                                                                                <source src="{{ asset('storage/paradise-20250211094250-20250818081852.mp4') }}"
+                                                                                                    type="video/mp4">
+                                                                                                    Your browser does not support the video tag.
+                                                                                                    </video>
+                                                                                                        <button class="sound-toggle" aria-label="Unmute Video">
+                                                                                                        <i class="bx bx-volume-mute"></i>
+                                                                                                        </button> --}}
+                                         <div class="video-card">
+                                          <video class="video-el"autoplay playsinline muted preload="metadata" poster="{{ get_media_url($prj->image) }}">
+                                            <source src="{{ asset(get_media_url($prj->image)) }}" type="video/mp4">
+                                          </video>
+                                          <!-- Big center play -->
+                                          <button class="big-play" aria-label="Play">
+                                            <!-- Play SVG -->
+                                            <svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true">
+                                              <path d="M8 5v14l11-7z" fill="currentColor"></path>
+                                            </svg>
+                                          </button>
+                                          <!-- Bottom controls -->
+                                          <div class="controls">
+                                            <button class="btn-play" aria-label="Play/Pause">
+                                              <!-- Play icon (default) -->
+                                              <svg class="icon-play" viewBox="0 0 24 24" width="18" height="18"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
+                                              <!-- Pause icon (hidden initially) -->
+                                              <svg class="icon-pause" viewBox="0 0 24 24" width="18" height="18" style="display:none"><path d="M6 5h4v14H6zm8 0h4v14h-4z" fill="currentColor"/></svg>
+                                            </button>
+                                            <button class="btn-mute" aria-label="Mute/Unmute">
+                                              <!-- Volume -->
+                                              <svg class="icon-volume" viewBox="0 0 24 24" width="18" height="18">
+                                                <path d="M3 10v4h4l5 4V6L7 10H3zM16.5 12a4.5 4.5 0 0 0-1.8-3.6l1.2-1.6A6.5 6.5 0 0 1 18.5 12a6.5 6.5 0 0 1-2.6 5.2l-1.2-1.6A4.5 4.5 0 0 0 16.5 12z" fill="currentColor"/>
+                                              </svg>
+                                              <!-- Muted -->
+                                              <svg class="icon-muted" viewBox="0 0 24 24" width="18" height="18" style="display:none">
+                                                <path d="M3 10v4h4l5 4V6L7 10H3z" fill="currentColor"/>
+                                                <path d="M22 6L6 22" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                              </svg>
+                                            </button>
+                                          </div>
+                                        </div>
+
+                                        @else
                                         <a data-fancybox="demo" href="{{ asset('frontend/assets/img/images/about_img01.jpg') }}">
                                             {!! get_image($prj->image) !!}
                                         </a>
+                                        @endif
                                         <div class="card-body text-center">
                                             <h6 class="card-title">{{ $prj->name }}</h6>
                                             {{-- <p class="card-text text-muted small">Short description goes here.</p> --}}
@@ -258,5 +302,52 @@
         </div>
     </div>
 @endif
+<script>
+document.querySelectorAll('.video-card').forEach(card => {
+  const video    = card.querySelector('.video-el');
+  const bigPlay  = card.querySelector('.big-play');
+  const btnPlay  = card.querySelector('.btn-play');
+  const btnMute  = card.querySelector('.btn-mute');
+
+  const iconPlay  = btnPlay.querySelector('.icon-play');
+  const iconPause = btnPlay.querySelector('.icon-pause');
+  const iconVol   = btnMute.querySelector('.icon-volume');
+  const iconMute  = btnMute.querySelector('.icon-muted');
+
+  // helper: update icons
+  function setPlayIcon(playing){
+    iconPlay.style.display  = playing ? 'none' : 'block';
+    iconPause.style.display = playing ? 'block' : 'none';
+    bigPlay.classList.toggle('hide', playing);
+  }
+  function setMuteIcon(muted){
+    iconVol.style.display  = muted ? 'none' : 'block';
+    iconMute.style.display = muted ? 'block' : 'none';
+  }
+
+  // default states
+  setPlayIcon(false);
+  setMuteIcon(true); // video starts muted
+
+  // events
+  bigPlay.addEventListener('click', () => {
+    video.play();
+  });
+
+  btnPlay.addEventListener('click', () => {
+    if (video.paused) video.play(); else video.pause();
+  });
+
+  btnMute.addEventListener('click', () => {
+    video.muted = !video.muted;
+  });
+
+  // keep icons in sync with actual state
+  video.addEventListener('play',  () => setPlayIcon(true));
+  video.addEventListener('pause', () => setPlayIcon(false));
+  video.addEventListener('ended', () => setPlayIcon(false));
+  video.addEventListener('volumechange', () => setMuteIcon(video.muted));
+});
+</script>
 
 
