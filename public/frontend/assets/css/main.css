@@ -13060,6 +13060,13 @@ textarea {
   z-index: 1;
 }
 
+.blog__post-area-five-new {
+  padding: 120px 0 90px;
+  background: white !important;
+  position: relative;
+  z-index: 1;
+}
+
 @media (max-width: 767.98px) {
   .blog__post-area-five {
     padding: 100px 0 70px;

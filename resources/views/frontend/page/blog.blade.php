@@ -58,7 +58,9 @@
                         </div>
                     </div>
                 </section> --}}
-                <section class="tp-blog-3-area pt-90 pb-90">
+
+
+                {{-- <section class="tp-blog-3-area pt-90 pb-90">
                 <div class="container">
                     <div class="row justify-content-center">
                              @foreach ($blogs as $blog)
@@ -68,7 +70,6 @@
                                                     <a class="shine-animate" href="{{ route('blogsingle', $blog->slug) }}">
                                                 {!! get_image($blog->image, '', 'home-blog') !!}
                                             </a>
-                                            {{-- <a href="blog" class="post-tag">Business</a> --}}
                                         </div>
                                         <div class="blog-post-content">
                                             <h2 class="title">
@@ -79,7 +80,6 @@
                                                     <img src="{{ asset('frontend') }}/assets/img/blog/blog_avatar01.png" alt="Apexa" />
                                                 </div>
                                                 <div class="avatar-content">
-                                                    {{-- <p>By <a href="blog-details">Doman Smith</a></p> --}}
                                                 </div>
                                             </div>
                                             <div class="blog-post-meta">
@@ -97,6 +97,45 @@
 
                         </div>
                     </div>
-                </section>
+                </section> --}}
+
+                <section class="blog__post-area-five-new">
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-xl-6">
+                                <div class="section-title text-center mb-50 tg-heading-subheading animation-style3">
+                                    <span class="sub-title">{{ $setting['blog_title'] ?? 'Latest News' }}</span>
+                                    <h2 class="title tg-element-title">{!! $setting['blog_info'] ?? 'Taking your business to <br> the next level' !!}</h2>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row gutter-24 justify-content-center">
+                            @foreach ($blogs as $blog)
+                                <div class="col-lg-4 col-md-6">
+                                    <div class="blog__post-four shine-animate-item">
+                                        <div class="blog__post-thumb-four">
+                                            <a href="{{ route('blogsingle', $blog->slug) }}" class="shine-animate">{!! get_image($blog->image, '', 'home-blog') !!}</a>
+                                        </div>
+                                        <div class="blog__post-content-four">
+                                            <a href="blog" class="blog__post-tag-three">{{ $blog->category ?? '' }}</a>
+                                            <h2 class="title"><a href="{{ route('blogsingle', $blog->slug) }}">{{ $blog->name ?? '' }}</a></h2>
+                                            <div class="blog-post-meta blog-post-meta-two">
+                                                <ul class="list-wrap">
+                                                    <li><i class="fas fa-calendar-alt"></i>{{ date('d', strtotime($blog->created_at)) }}
+                                                            {{ date('M', strtotime($blog->created_at)) }} {{ date('Y', strtotime($blog->created_at)) }}</li>
+                                                    {{-- <li><i class="far fa-comment-alt"></i><a href="blog-details">0 Comments</a></li> --}}
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endforeach                                
+                        </div>
+                    </div>
+                    <div class="blog-shape-wrap">
+                        <img src="{{ asset('frontend') }}/assets/img/images/h5_blog_shape01.png" alt="Apexa" data-aos="fade-right" data-aos-delay="400" />
+                        <img src="{{ asset('frontend') }}/assets/img/images/h5_blog_shape02.png" alt="Apexa" data-aos="fade-left" data-aos-delay="400" />
+                    </div>
+                    </section>
             @endif
 @endsection
